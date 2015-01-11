@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module SYSTEM "module.dtd" >
+<module>
+    <name>magnolia-templating-foundation</name>
+    <displayName>${project.name}</displayName>
+    <description>${project.description}</description>
+    <class>nl.gertontenham.magnolia.templating.FoundationTemplatingModule</class>
+    <versionHandler>nl.gertontenham.magnolia.templating.setup.FoundationTemplatingModuleVersionHandler</versionHandler>
+    <version>${project.version}</version>
+
+    <components>
+        <id>main</id>
+        <component>
+            <type>nl.gertontenham.magnolia.templating.functions.FoundationTemplatingFunctions</type>
+            <implementation>nl.gertontenham.magnolia.templating.functions.FoundationTemplatingFunctions</implementation>
+            <scope>singleton</scope>
+        </component>
+    </components>
+
+    <dependencies>
+        <dependency>
+            <name>core</name>
+            <version>5.3/*</version>
+        </dependency>
+        <dependency>
+            <name>ui-admincentral</name>
+            <version>5.3/*</version>
+        </dependency>
+        <dependency>
+            <name>rendering</name>
+            <version>5.3/*</version>
+        </dependency>
+    </dependencies>
+    <servlets>
+        <servlet>
+            <name>StaticResourcesServlet</name>
+            <class>nl.gertontenham.magnolia.templating.servlets.StaticResourcesServlet</class>
+            <mappings>
+                <mapping>/static/*</mapping>
+            </mappings>
+        </servlet>
+    </servlets>
+</module>
