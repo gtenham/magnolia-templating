@@ -96,7 +96,7 @@
     <repositories>
         <repository>
             <id>magnolia.public</id>
-            <url>http://nexus.magnolia-cms.com/content/groups/public</url>
+            <url>https://nexus.magnolia-cms.com/content/groups/public</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
