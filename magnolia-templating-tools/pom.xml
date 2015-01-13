@@ -6,10 +6,10 @@
         <groupId>nl.gertontenham.magnolia</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <artifactId>magnolia-templating-foundation</artifactId>
+    <artifactId>magnolia-templating-tools</artifactId>
     <packaging>jar</packaging>
-    <name>Magnolia Templating Foundation Module</name>
-    <description>Magnolia module providing templates using Foundation for Sites</description>
+    <name>Magnolia Templating Tools Module</name>
+    <description>Magnolia module providing tools and apps using Foundation for Sites</description>
 
     <dependencies>
         <!-- Add your project specific dependencies here: -->
@@ -18,20 +18,8 @@
             <artifactId>magnolia-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>info.magnolia</groupId>
-            <artifactId>magnolia-module-inplace-templating</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>info.magnolia</groupId>
-            <artifactId>magnolia-templating</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>info.magnolia</groupId>
-            <artifactId>magnolia-module-resources</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>info.magnolia.dam</groupId>
-            <artifactId>magnolia-dam</artifactId>
+            <groupId>info.magnolia.ui</groupId>
+            <artifactId>magnolia-ui-contentapp</artifactId>
         </dependency>
 
         <dependency>
@@ -56,30 +44,6 @@
                 <configuration>
                     <source>${javaVersion}</source>
                     <target>${javaVersion}</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>yuicompressor-maven-plugin</artifactId>
-                <version>1.5.1</version>
-                <executions>
-                    <execution>
-                        <id>compress-static-resources</id>
-                        <goals>
-                            <goal>compress</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <nosuffix>true</nosuffix>
-                    <force>true</force>
-                    <sourceDirectory>src/main/resources</sourceDirectory>
-                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
-                    <excludes>
-                        <exclude>**/*.pack.js</exclude>
-                        <exclude>**/*.min.js</exclude>
-                        <exclude>**/compressed.css</exclude>
-                    </excludes>
                 </configuration>
             </plugin>
         </plugins>

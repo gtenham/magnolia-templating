@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module SYSTEM "module.dtd" >
+<module>
+    <name>magnolia-templating-tools</name>
+    <displayName>${project.name}</displayName>
+    <description>${project.description}</description>
+    <class>nl.gertontenham.magnolia.templating.tools.FoundationToolsModule</class>
+    <versionHandler>nl.gertontenham.magnolia.templating.tools.setup.FoundationToolsModuleVersionHandler</versionHandler>
+    <version>${project.version}</version>
+
+    <dependencies>
+        <dependency>
+            <name>core</name>
+            <version>5.3/*</version>
+        </dependency>
+        <dependency>
+            <name>ui-admincentral</name>
+            <version>5.3/*</version>
+        </dependency>
+        <dependency>
+            <name>magnolia-templating-foundation</name>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+</module>

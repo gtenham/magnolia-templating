@@ -17,6 +17,10 @@
             <groupId>nl.gertontenham.magnolia</groupId>
             <artifactId>magnolia-templating-foundation</artifactId>
         </dependency>
+        <dependency>
+            <groupId>nl.gertontenham.magnolia</groupId>
+            <artifactId>magnolia-templating-tools</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>info.magnolia</groupId>
