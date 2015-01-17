@@ -7,7 +7,6 @@ Are we A-OK?
 
 [![Build Status](https://travis-ci.org/gtenham/magnolia-templating.svg?branch=master)](https://travis-ci.org/gtenham/magnolia-templating)
 
-##
 
 ## Prerequisites
 * [git](http://git-scm.com/)
@@ -29,6 +28,9 @@ For more information on running Magnolia look here:
 [http://documentation.magnolia-cms.com/display/DOCS/Creating+a+custom+bundle][1]
 
 [1]: http://documentation.magnolia-cms.com/display/DOCS/Creating+a+custom+bundle#Creatingacustombundle-Runtheproject
+
+##License
+Copyright (c) 2015 Gerton ten Ham and contributors. Released under a [GNUv3 license](https://github.com/gtenham/magnolia-templating/blob/master/LICENSE.md).
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/gtenham/magnolia-templating/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
