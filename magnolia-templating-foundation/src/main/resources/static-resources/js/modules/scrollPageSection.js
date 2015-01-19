@@ -1,6 +1,6 @@
 define(function (require) {
 	var $ = require('jquery');
-	var sm = require('vendor/scrollMonitor.min');
+	var sm = require('vendor/scrollMonitor');
 	var $tagFilters = null;
     var currentTagFilter = null;
 	var watchers = [];

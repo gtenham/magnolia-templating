@@ -9,6 +9,8 @@ require.config({
         /* jQuery */
         'jquery': ['//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min', 'vendor/jquery.min'],
 
+        /* Optional modules */
+
         /* Plugins */
         'text': 'plugins/text.min',
         'css': 'plugins/css.min',
@@ -21,23 +23,23 @@ require.config({
         'propertyParser' : 'plugins/propertyParser.min',
 
         /* Foundation */
-        'foundation.core': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.min','vendor/foundation/foundation.min'],
-        'foundation.abide': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.abide.min','vendor/foundation/foundation.abide.min'],
-        'foundation.accordion': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.accordion.min.','vendor/foundation/foundation.accordion'],
-        'foundation.alert': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.alert.min','vendor/foundation/foundation.alert.min'],
-        'foundation.clearing': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.clearing.min','vendor/foundation/foundation.clearing.min'],
-        'foundation.dropdown': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.dropdown.min','vendor/foundation/foundation.dropdown.min'],
-        'foundation.equalizer': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.equalizer.min','vendor/foundation/foundation.equalizer.min'],
-        'foundation.interchange': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.interchange.min','vendor/foundation/foundation.interchange.min'],
-        'foundation.joyride': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.joyride.min','vendor/foundation/foundation.joyride.min'],
-        'foundation.magellan': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.magellan.min','vendor/foundation/foundation.magellan.min'],
-        'foundation.offcanvas': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.offcanvas.min','vendor/foundation/foundation.offcanvas.min'],
-        'foundation.orbit': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.orbit.min','vendor/foundation/foundation.orbit.min'],
-        'foundation.reveal': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.reveal.min','vendor/foundation/foundation.reveal.min'],
-        'foundation.slider': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.slider.min','vendor/foundation/foundation.slider.min'],
-        'foundation.tab': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.tab.min','vendor/foundation/foundation.tab.min'],
-        'foundation.tooltip': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.tooltip.min','vendor/foundation/foundation.tooltip.min'],
-        'foundation.topbar': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/js/foundation/foundation.topbar.min','vendor/foundation/foundation.topbar.min'],
+        'foundation.core': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.min','vendor/foundation/5.5.0/foundation'],
+        'foundation.abide': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.abide.min','vendor/foundation/5.5.0/foundation.abide'],
+        'foundation.accordion': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.accordion.min.','vendor/foundation/5.5.0/foundation.accordion'],
+        'foundation.alert': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.alert.min','vendor/foundation/5.5.0/foundation.alert'],
+        'foundation.clearing': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.clearing.min','vendor/foundation/5.5.0/foundation.clearing'],
+        'foundation.dropdown': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.dropdown.min','vendor/foundation/5.5.0/foundation.dropdown'],
+        'foundation.equalizer': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.equalizer.min','vendor/foundation/5.5.0/foundation.equalizer'],
+        'foundation.interchange': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.interchange.min','vendor/foundation/5.5.0/foundation.interchange'],
+        'foundation.joyride': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.joyride.min','vendor/foundation/5.5.0/foundation.joyride'],
+        'foundation.magellan': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.magellan.min','vendor/foundation/5.5.0/foundation.magellan'],
+        'foundation.offcanvas': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.offcanvas.min','vendor/foundation/5.5.0/foundation.offcanvas'],
+        'foundation.orbit': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.orbit.min','vendor/foundation/5.5.0/foundation.orbit'],
+        'foundation.reveal': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.reveal.min','vendor/foundation/5.5.0/foundation.reveal'],
+        'foundation.slider': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.slider.min','vendor/foundation/5.5.0/foundation.slider'],
+        'foundation.tab': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.tab.min','vendor/foundation/5.5.0/foundation.tab'],
+        'foundation.tooltip': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.tooltip.min','vendor/foundation/5.5.0/foundation.tooltip'],
+        'foundation.topbar': ['//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation/foundation.topbar.min','vendor/foundation/5.5.0/foundation.topbar'],
 
         /* Vendor Scripts */
         'jquery.cookie': ['//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min','vendor/jquery.cookie.min'],

@@ -73,6 +73,8 @@
                 <configuration>
                     <nosuffix>true</nosuffix>
                     <force>true</force>
+                    <nomunge>true</nomunge>
+                    <preserveAllSemiColons>true</preserveAllSemiColons>
                     <sourceDirectory>src/main/resources</sourceDirectory>
                     <outputDirectory>${project.build.directory}/classes</outputDirectory>
                     <excludes>

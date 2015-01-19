@@ -1,9 +1,8 @@
 package nl.gertontenham.magnolia.templating.functions;
 
-import com.google.common.net.MediaType;
 import info.magnolia.cms.core.AggregationState;
-import info.magnolia.cms.core.SystemProperty;
 import info.magnolia.cms.i18n.I18nContentSupport;
+import info.magnolia.context.MgnlContext;
 import info.magnolia.jcr.util.ContentMap;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.wrapper.I18nNodeWrapper;
@@ -11,6 +10,8 @@ import info.magnolia.link.LinkUtil;
 import info.magnolia.objectfactory.Components;
 import info.magnolia.templating.functions.TemplatingFunctions;
 import nl.gertontenham.magnolia.templating.FoundationTemplatingModule;
+import nl.gertontenham.magnolia.templating.config.SiteConfig;
+import nl.gertontenham.magnolia.templating.managers.SiteManager;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +40,8 @@ public class FoundationTemplatingFunctions extends TemplatingFunctions {
         }
     }
 
-    private Provider<FoundationTemplatingModule> moduleProvider;
+    private FoundationTemplatingModule module;
+    private SiteManager siteManager;
 
     private final I18nContentSupport i18n = Components.getComponent(I18nContentSupport.class);
     private final Random randomizer = new Random();
@@ -47,48 +49,55 @@ public class FoundationTemplatingFunctions extends TemplatingFunctions {
 
     //TODO: aggregationStateProvider is needed in constructor of TemplatingFunctions, but might be changed in future by Magnolia
     @Inject
-    public FoundationTemplatingFunctions(Provider<AggregationState> aggregationStateProvider, Provider<FoundationTemplatingModule> moduleProvider) {
+    public FoundationTemplatingFunctions(Provider<AggregationState> aggregationStateProvider, FoundationTemplatingModule module, SiteManager siteManager) {
         super(aggregationStateProvider);
-        this.moduleProvider = moduleProvider;
+        this.module = module;
+        this.siteManager = siteManager;
     }
-
-    /*public boolean isDefaultSiteSSLEnabled() {
-        return moduleProvider.get().getDefaultSite().isSslEnabled();
-    }
-
-    public String getDefaultSiteEmail() {
-        return moduleProvider.get().getDefaultSite().getEmail();
-    }
-
-    public String getDefaultSiteGaAccount() {
-        return moduleProvider.get().getDefaultSite().getGaAccount();
-    }
-
-    public String getDefaultSiteTheme() {
-        return moduleProvider.get().getDefaultSite().getTheme();
-    }*/
 
     /**
-     * Returns the site's root {@link ContentMap} of the passed @param content {@link ContentMap}
+     * Get Site configuration mapped to root node for given node.
      *
      * @param content
-     * @return ContentMap of site root
+     * @return Site configuration, if not found an empty SiteConfig instance will be returned
      * @throws RepositoryException
      */
-    public ContentMap getSiteRoot(ContentMap content) throws RepositoryException {
-        return asContentMap(getSiteRoot(content.getJCRNode()));
+    public SiteConfig getSiteConfig(ContentMap content) throws RepositoryException {
+        return getSiteConfig(content.getJCRNode());
     }
 
     /**
-     * Returns the site's root {@link Node} of the passed @param content {@link Node}
+     * Get Site configuration mapped to root node for given node.
      *
      * @param node
-     * @return Node of site root
+     * @return Site configuration, if not found an empty SiteConfig instance will be returned
      * @throws RepositoryException
      */
-    public Node getSiteRoot(Node node) throws RepositoryException {
-        Node siteNode = root(page(node), NodeTypes.Page.NAME);
-        return (siteNode == null) ? page(node) : siteNode;
+    public SiteConfig getSiteConfig(Node node) throws RepositoryException {
+        return siteManager.getCurrentSiteConfig(getTreeRoot(node));
+    }
+
+    /**
+     * Returns the tree's root {@link ContentMap} of the passed @param content {@link ContentMap}
+     *
+     * @param content
+     * @return ContentMap of tree root
+     * @throws RepositoryException
+     */
+    public ContentMap getTreeRoot(ContentMap content) throws RepositoryException {
+        return asContentMap(getTreeRoot(content.getJCRNode()));
+    }
+
+    /**
+     * Returns the tree's root {@link Node} of the passed @param content {@link Node}
+     *
+     * @param node
+     * @return Node of tree root
+     * @throws RepositoryException
+     */
+    public Node getTreeRoot(Node node) throws RepositoryException {
+        Node rootNode = root(page(node), NodeTypes.Page.NAME);
+        return (rootNode == null) ? page(node) : rootNode;
     }
 
     public ContentMap i18nWrap(ContentMap content) {
@@ -181,11 +190,11 @@ public class FoundationTemplatingFunctions extends TemplatingFunctions {
     }
 
     public boolean isDevMode() {
-        return StringUtils.equalsIgnoreCase(moduleProvider.get().getMode(), Mode.DEV.toString());
+        return StringUtils.equalsIgnoreCase(module.getMode(), Mode.DEV.toString());
     }
 
     public boolean isBetaMode() {
-        return StringUtils.equalsIgnoreCase(moduleProvider.get().getMode(), Mode.BETA.toString());
+        return StringUtils.equalsIgnoreCase(module.getMode(), Mode.BETA.toString());
     }
 
     /**

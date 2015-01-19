@@ -5,6 +5,7 @@ import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.template.RenderableDefinition;
+import nl.gertontenham.magnolia.templating.config.SiteConfig;
 import nl.gertontenham.magnolia.templating.functions.FoundationTemplatingFunctions;
 import nl.gertontenham.magnolia.templating.rendering.AbstractRenderableDefinition;
 import org.apache.commons.lang.StringUtils;
@@ -73,7 +74,7 @@ public class BasePageRenderableDefinition<RD extends RenderableDefinition> exten
      */
     public List<Node> getAncestors(Node node) throws RepositoryException {
         List<Node> allAncestors = templatingFunctions.ancestors(node, NodeTypes.Page.NAME);
-        Node siteRoot = getSiteRoot(node);
+        Node siteRoot = getTreeRoot(node);
         List<Node> ancestors = new ArrayList<Node>(0);
         for (Node current : allAncestors) {
             if (current.getDepth() >= siteRoot.getDepth()) {
@@ -115,9 +116,27 @@ public class BasePageRenderableDefinition<RD extends RenderableDefinition> exten
         String siteTitle = getSiteTitle();
 
         if (StringUtils.isNotBlank(siteTitle)) {
-            return siteTitle + " | " + windowTitle;
+            return windowTitle + " | " + siteTitle;
         }
         return windowTitle;
+    }
+
+    /**
+     * Get Site manager value for Google Analytics
+     *
+     * @return Google Analytics account code
+     */
+    public String getGoogleAnalytics() throws RepositoryException {
+        return StringUtils.defaultIfEmpty(getSiteConfig().getGaAccount(),"");
+    }
+
+    /**
+     * Get Site configuration data
+     *
+     * @return site configuration data
+     */
+    public SiteConfig getSiteConfig() throws RepositoryException {
+        return templatingFunctions.getSiteConfig(content);
     }
 
     /**
@@ -127,7 +146,7 @@ public class BasePageRenderableDefinition<RD extends RenderableDefinition> exten
      * @throws RepositoryException
      */
     public String getSiteTitle() throws RepositoryException {
-        return StringUtils.defaultIfEmpty(PropertyUtil.getString(getSiteRoot(content), "siteTitle"),"");
+        return StringUtils.defaultIfEmpty(getSiteConfig().getSiteTitle(),"");
     }
 
 }

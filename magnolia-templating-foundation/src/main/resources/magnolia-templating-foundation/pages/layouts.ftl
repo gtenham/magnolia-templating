@@ -7,12 +7,8 @@
 <!--[if gt IE 8]><!--> <html lang="${cmsfn.language()}" class="no-js"> <!--<![endif]-->
   <head>
   	[#-- Show Magnolia edit bar --]
-	[#if model.isSiteRoot(content) ]
-    	[@cms.init dialog="magnolia-templating-foundation:pages/siteProperties"/]
-    [#else]
-        [@cms.init /]
-    [/#if]
-    
+	[@cms.init /]
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,19 +21,18 @@
 	
     <title>${model.getTitle()!}</title>
     [#-- Get css resources --]
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/css/normalize.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.7/css/foundation.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/normalize.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    [#if model.siteTheme?has_content]
-    <link rel="stylesheet" href="${model.siteTheme}">
-    [/#if]
-    [#-- AMD loading javascript --]
+
+    [#-- Setting global javascrip vars --]
     <script>
         mtf = window.mtf = window.mtf || {};
         // Setting global vars
         mtf.contextPath = "${contextPath}";
         mtf.version = "1.0.0-SNAPSHOT";
     </script>
+    [#-- AMD loading javascript --]
     <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js" data-main="${contextPath}/static/js/main"></script>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->

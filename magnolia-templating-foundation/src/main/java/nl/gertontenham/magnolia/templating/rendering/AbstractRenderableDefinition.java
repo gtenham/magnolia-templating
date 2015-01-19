@@ -67,8 +67,8 @@ public class AbstractRenderableDefinition<RD extends RenderableDefinition> exten
      * @return ContentMap of site root
      * @throws RepositoryException
      */
-    public ContentMap getSiteRoot(ContentMap content) throws RepositoryException {
-        return templatingFunctions.getSiteRoot(content);
+    public ContentMap getTreeRoot(ContentMap content) throws RepositoryException {
+        return templatingFunctions.getTreeRoot(content);
     }
 
     /**
@@ -78,8 +78,8 @@ public class AbstractRenderableDefinition<RD extends RenderableDefinition> exten
      * @return Node of site root
      * @throws RepositoryException
      */
-    public Node getSiteRoot(Node node) throws RepositoryException {
-        return templatingFunctions.getSiteRoot(node);
+    public Node getTreeRoot(Node node) throws RepositoryException {
+        return templatingFunctions.getTreeRoot(node);
     }
 
     /**
