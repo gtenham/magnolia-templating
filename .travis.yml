@@ -4,4 +4,4 @@ jdk:
   - oraclejdk7
 
 script:
-  - mvn clean install -q 1> /dev/null
+  - mvn clean install -Dmaven.yuicompressor.skip=true
