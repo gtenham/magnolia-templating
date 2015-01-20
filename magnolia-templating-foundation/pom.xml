@@ -58,32 +58,6 @@
                     <target>${javaVersion}</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>yuicompressor-maven-plugin</artifactId>
-                <version>1.5.1</version>
-                <executions>
-                    <execution>
-                        <id>compress-static-resources</id>
-                        <goals>
-                            <goal>compress</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <nosuffix>true</nosuffix>
-                    <force>true</force>
-                    <nomunge>true</nomunge>
-                    <preserveAllSemiColons>true</preserveAllSemiColons>
-                    <sourceDirectory>src/main/resources</sourceDirectory>
-                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
-                    <excludes>
-                        <exclude>**/*.pack.js</exclude>
-                        <exclude>**/*.min.js</exclude>
-                        <exclude>**/compressed.css</exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
         </plugins>
 
         <!-- default resources configuration which will filter the module descriptor -->
@@ -104,4 +78,39 @@
         </resources>
     </build>
 
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>net.alchim31.maven</groupId>
+                        <artifactId>yuicompressor-maven-plugin</artifactId>
+                        <version>1.5.1</version>
+                        <executions>
+                            <execution>
+                                <id>compress-static-resources</id>
+                                <goals>
+                                    <goal>compress</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <nosuffix>true</nosuffix>
+                            <force>true</force>
+                            <nomunge>true</nomunge>
+                            <preserveAllSemiColons>true</preserveAllSemiColons>
+                            <sourceDirectory>src/main/resources</sourceDirectory>
+                            <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                            <excludes>
+                                <exclude>**/*.pack.js</exclude>
+                                <exclude>**/*.min.js</exclude>
+                                <exclude>**/compressed.css</exclude>
+                            </excludes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
