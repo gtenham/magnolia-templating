@@ -10,7 +10,9 @@
 	[@cms.init /]
 
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" />
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <meta name="keywords" content="${model.getMetaKeywords()!}" />
@@ -23,13 +25,16 @@
     [#-- Get css resources --]
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/normalize.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
 
     [#-- Setting global javascrip vars --]
     <script>
         mtf = window.mtf = window.mtf || {};
         // Setting global vars
         mtf.contextPath = "${contextPath}";
+        [#if (model.googleAnalytics?has_content)]
+        mtf.googleAccount = "${model.googleAnalytics}";
+        [/#if]
         mtf.version = "1.0.0-SNAPSHOT";
     </script>
     [#-- AMD loading javascript --]
@@ -39,15 +44,6 @@
     <!--[if lt IE 9]> 
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>          
   	<![endif]-->
-    
-    [#if (model.googleAnalytics?has_content)]
-	    <!-- Google analytics (asynchronous) part I -->
-		<script type="text/javascript">
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', '${model.googleAnalytics}']);
-			_gaq.push(['_trackPageview']);
-		</script>
-    [/#if]
   </head>
   <body>
         
@@ -55,16 +51,15 @@
     [#nested/]
         
     [#if (model.googleAnalytics?has_content)]
-	    <!-- Google analytics (asynchronous) part II -->
-	    <script type="text/javascript">
-	        (function() {
-	            var ga = document.createElement('script');
-	            ga.type = 'text/javascript'; ga.async = true;
-	            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	            var s = document.getElementsByTagName('script')[0];
-	            s.parentNode.insertBefore(ga, s);
-	        })();
-	    </script>
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+                    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+                e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+                e.src='//www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create',mtf.googleAccount,'auto');ga('send','pageview');
+        </script>
+
     [/#if]
   </body>
 </html>

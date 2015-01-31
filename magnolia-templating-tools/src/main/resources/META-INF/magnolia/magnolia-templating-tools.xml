@@ -22,4 +22,13 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <name>magnolia</name>
+            <workspaces>
+                <workspace>mtf-tools</workspace>
+            </workspaces>
+            <nodeTypeFile>/mgnl-nodetypes/mtf-tools-nodetypes.xml</nodeTypeFile>
+        </repository>
+    </repositories>
 </module>

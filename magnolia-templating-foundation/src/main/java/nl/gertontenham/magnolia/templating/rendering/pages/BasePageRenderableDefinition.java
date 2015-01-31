@@ -3,6 +3,7 @@ package nl.gertontenham.magnolia.templating.rendering.pages;
 import info.magnolia.jcr.util.ContentMap;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.util.PropertyUtil;
+import info.magnolia.link.LinkUtil;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.template.RenderableDefinition;
 import nl.gertontenham.magnolia.templating.config.SiteConfig;
@@ -17,6 +18,7 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Page renderable definition which can be used as the base renderable definition class for pages
@@ -147,6 +149,26 @@ public class BasePageRenderableDefinition<RD extends RenderableDefinition> exten
      */
     public String getSiteTitle() throws RepositoryException {
         return StringUtils.defaultIfEmpty(getSiteConfig().getSiteTitle(),"");
+    }
+
+    /**
+     * Creates absolute link including context path to the provided node and performing all URI2Repository mappings and applying locales.
+     *
+     * @return absolute link for current page
+     */
+    public String getAbsolutePageLink() {
+        StringBuilder pageUriSB = new StringBuilder(LinkUtil.createExternalLink(content)).
+                append(StringUtils.isBlank(queryString) ? "": "?"+queryString);
+        return pageUriSB.toString();
+    }
+
+    /**
+     * Get localised relative page link
+     * @return page link
+     * @throws RepositoryException
+     */
+    public String getLocalisedPageLink(Locale locale) throws RepositoryException {
+        return templatingFunctions.getLocalisedPageLink(content, locale);
     }
 
 }

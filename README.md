@@ -1,8 +1,6 @@
 magnolia-templating
 ===================
 
-[![Join the chat at https://gitter.im/gtenham/magnolia-templating](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gtenham/magnolia-templating?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [Magnolia](http://www.magnolia-cms.com) templating kit based on [Foundation for Sites](http://foundation.zurb.com/)
 
 Are we A-OK?
@@ -36,3 +34,4 @@ Copyright (c) 2015 Gerton ten Ham and contributors. Released under a [GNUv3 lice
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/gtenham/magnolia-templating/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
+[![Join the chat at https://gitter.im/gtenham/magnolia-templating](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gtenham/magnolia-templating?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)

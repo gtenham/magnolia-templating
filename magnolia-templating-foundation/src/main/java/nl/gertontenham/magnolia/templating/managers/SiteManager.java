@@ -1,13 +1,9 @@
 package nl.gertontenham.magnolia.templating.managers;
 
 import info.magnolia.cms.core.AggregationState;
-import info.magnolia.context.MgnlContext;
-import info.magnolia.jcr.util.NodeTypes;
-import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.templating.functions.TemplatingFunctions;
 import nl.gertontenham.magnolia.templating.FoundationTemplatingModule;
 import nl.gertontenham.magnolia.templating.config.SiteConfig;
-import nl.gertontenham.magnolia.templating.functions.FoundationTemplatingFunctions;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +12,10 @@ import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Site manager class

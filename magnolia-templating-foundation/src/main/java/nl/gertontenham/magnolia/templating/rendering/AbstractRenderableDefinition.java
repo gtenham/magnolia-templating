@@ -3,8 +3,6 @@ package nl.gertontenham.magnolia.templating.rendering;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.context.WebContext;
 import info.magnolia.jcr.util.ContentMap;
-import info.magnolia.jcr.util.NodeTypes;
-import info.magnolia.link.LinkUtil;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.model.RenderingModelImpl;
 import info.magnolia.rendering.template.RenderableDefinition;
@@ -83,17 +81,6 @@ public class AbstractRenderableDefinition<RD extends RenderableDefinition> exten
     }
 
     /**
-     * Creates absolute link including context path to the provided node and performing all URI2Repository mappings and applying locales.
-     *
-     * @return absolute link for current page
-     */
-    public String getAbsolutePageLink() {
-        StringBuilder pageUriSB = new StringBuilder(LinkUtil.createExternalLink(content)).
-                append(StringUtils.isBlank(queryString) ? "": "?"+queryString);
-        return pageUriSB.toString();
-    }
-
-    /**
      * Get all active content locales from config:/server/i18n/content/locales without the default locale
      * @return Collection of no-default locales
      */
@@ -133,16 +120,6 @@ public class AbstractRenderableDefinition<RD extends RenderableDefinition> exten
     public Locale getFallbackLocale() {
         return templatingFunctions.getFallbackLocale();
     }
-
-    /**
-     * Get localised relative page link
-     * @return page link
-     * @throws RepositoryException
-     */
-    public String getLocalisedPageLink(Locale locale) throws RepositoryException {
-        return templatingFunctions.getLocalisedPageLink(content, locale);
-    }
-
 
     /**
      * Is https used already
