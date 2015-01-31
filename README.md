@@ -1,6 +1,8 @@
 magnolia-templating
 ===================
 
+[![Join the chat at https://gitter.im/gtenham/magnolia-templating](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gtenham/magnolia-templating?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [Magnolia](http://www.magnolia-cms.com) templating kit based on [Foundation for Sites](http://foundation.zurb.com/)
 
 Are we A-OK?
