@@ -21,6 +21,10 @@
             <groupId>info.magnolia.ui</groupId>
             <artifactId>magnolia-ui-contentapp</artifactId>
         </dependency>
+        <dependency>
+            <groupId>nl.gertontenham.magnolia</groupId>
+            <artifactId>magnolia-templating-foundation</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>

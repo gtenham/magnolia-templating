@@ -2,7 +2,6 @@ package nl.gertontenham.magnolia.templating.functions;
 
 import info.magnolia.cms.core.AggregationState;
 import info.magnolia.cms.i18n.I18nContentSupport;
-import info.magnolia.context.MgnlContext;
 import info.magnolia.jcr.util.ContentMap;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.wrapper.I18nNodeWrapper;
@@ -10,7 +9,7 @@ import info.magnolia.link.LinkUtil;
 import info.magnolia.objectfactory.Components;
 import info.magnolia.templating.functions.TemplatingFunctions;
 import nl.gertontenham.magnolia.templating.FoundationTemplatingModule;
-import nl.gertontenham.magnolia.templating.config.SiteConfig;
+import nl.gertontenham.magnolia.templating.beans.SiteConfig;
 import nl.gertontenham.magnolia.templating.managers.SiteManager;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -109,7 +108,7 @@ public class FoundationTemplatingFunctions extends TemplatingFunctions {
     }
 
     /**
-     * Get all active content locales from config:/server/i18n/content/locales without the default locale
+     * Get all active content locales from beans:/server/i18n/content/locales without the default locale
      * @return Collection of no-default locales
      */
     public Collection<Locale> getLocalesWithoutDefault() {
@@ -123,7 +122,7 @@ public class FoundationTemplatingFunctions extends TemplatingFunctions {
     }
 
     /**
-     * Get all active content locales from config:/server/i18n/content/locales
+     * Get all active content locales from beans:/server/i18n/content/locales
      * @return Collection of locales starting with default Locale
      */
     public Collection<Locale> getLocales() {
@@ -136,7 +135,7 @@ public class FoundationTemplatingFunctions extends TemplatingFunctions {
     }
 
     /**
-     * Get current locale with fallback to config:/server/i18n/content@fallbackLocale
+     * Get current locale with fallback to beans:/server/i18n/content@fallbackLocale
      * @return Locale
      */
     public Locale getDefaultLocale() {
@@ -144,12 +143,20 @@ public class FoundationTemplatingFunctions extends TemplatingFunctions {
     }
 
     /**
-     * Get fallback locale from config:/server/i18n/content@fallbackLocale
+     * Get fallback locale from beans:/server/i18n/content@fallbackLocale
      *
      * @return Locale
      */
     public Locale getFallbackLocale() {
         return i18n.getFallbackLocale();
+    }
+
+    /**
+     * Is content localisation enabled
+     * @return true when (/server/i18n/content@enabled has value true)
+     */
+    public Boolean getLocalisationEnabled() {
+        return i18n.isEnabled();
     }
 
     /**

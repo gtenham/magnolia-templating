@@ -35,7 +35,40 @@
 		          			[@renderNavigation navigation=childPage maxLevel=4 /]
 		      			[/#list]
 		        	</ul>
+
+                    <ul class="extras right">
+                        <li class="has-form search-bar">
+                            <form action="#" class="row collapse">
+                                <div class="small-10 columns">
+                                    <input type="text" name="s" placeholder="Search">
+                                </div>
+                                <div class="small-2 columns">
+                                    <button class="button expand"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
+                        </li>
+
+                        [#if mtffn.localisationEnabled!false]
+                        <li class="has-dropdown language-switcher">
+                            <a>${mtffn.defaultLocaleCode?upper_case}</a>
+
+                            <ul class="dropdown">
+
+                                [#list mtffn.localesWithoutDefault as locale]
+                                    [#assign language = locale.language /]
+                                    [#assign localisedPageLink = model.getLocalisedPageLink(locale) /]
+                                    [#if ctx.request.queryString?has_content]
+                                        [#assign localisedPageLink = localisedPageLink + "?" + ctx.request.queryString /]
+                                    [/#if]
+                                    <li><a href="${localisedPageLink}">${language?upper_case}</a></li>
+                                [/#list]
+                            </ul>
+                        </li>
+                        [/#if]
+                    </ul>
 				</section>
+
+
 			</nav>
 		
 	</div>

@@ -8,6 +8,15 @@
     <versionHandler>nl.gertontenham.magnolia.templating.tools.setup.FoundationToolsModuleVersionHandler</versionHandler>
     <version>${project.version}</version>
 
+    <components>
+        <id>main</id>
+        <component>
+            <type>nl.gertontenham.magnolia.templating.managers.SiteManager</type>
+            <implementation>nl.gertontenham.magnolia.templating.tools.managers.SiteManagerImpl</implementation>
+            <scope>singleton</scope>
+        </component>
+    </components>
+
     <dependencies>
         <dependency>
             <name>core</name>

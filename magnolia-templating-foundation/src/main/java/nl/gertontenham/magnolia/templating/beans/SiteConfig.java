@@ -1,10 +1,11 @@
-package nl.gertontenham.magnolia.templating.config;
+package nl.gertontenham.magnolia.templating.beans;
 
 /**
  * Site node2bean configuration class
  */
 public class SiteConfig {
 
+    private String name;
     private String sitePageMap;
     private String siteTitle;
     private String siteSlogan;
@@ -12,6 +13,16 @@ public class SiteConfig {
     private String siteAlternativeLogoText;
     private String gaAccount;
     private Boolean sslEnabled;
+    private String mappedServerName;
+    private String mappedServerPath;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getSitePageMap() {
         return sitePageMap;
@@ -67,5 +78,21 @@ public class SiteConfig {
 
     public void setGaAccount(String gaAccount) {
         this.gaAccount = gaAccount;
+    }
+
+    public String getMappedServerName() {
+        return mappedServerName;
+    }
+
+    public void setMappedServerName(String mappedServerName) {
+        this.mappedServerName = mappedServerName;
+    }
+
+    public String getMappedServerPath() {
+        return mappedServerPath;
+    }
+
+    public void setMappedServerPath(String mappedServerPath) {
+        this.mappedServerPath = mappedServerPath;
     }
 }

@@ -1,7 +1,7 @@
 magnolia-templating
 ===================
 
-[Magnolia](http://www.magnolia-cms.com) templating kit based on [Foundation for Sites](http://foundation.zurb.com/)
+[Magnolia cms](http://www.magnolia-cms.com) templating kit based on [Foundation for Sites](http://foundation.zurb.com/)
 
 Are we A-OK?
 

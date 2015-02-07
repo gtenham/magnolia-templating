@@ -81,7 +81,7 @@ public class AbstractRenderableDefinition<RD extends RenderableDefinition> exten
     }
 
     /**
-     * Get all active content locales from config:/server/i18n/content/locales without the default locale
+     * Get all active content locales from beans:/server/i18n/content/locales without the default locale
      * @return Collection of no-default locales
      */
     public Collection<Locale> getLocalesWithoutDefault() {
@@ -89,7 +89,7 @@ public class AbstractRenderableDefinition<RD extends RenderableDefinition> exten
     }
 
     /**
-     * Get all active content locales from config:/server/i18n/content/locales
+     * Get all active content locales from beans:/server/i18n/content/locales
      * @return Collection of locales starting with default Locale
      */
     public Collection<Locale> getLocales() {
@@ -97,7 +97,7 @@ public class AbstractRenderableDefinition<RD extends RenderableDefinition> exten
     }
 
     /**
-     * Get current locale with fallback to config:/server/i18n/content@fallbackLocale
+     * Get current locale with fallback to beans:/server/i18n/content@fallbackLocale
      * @return Locale
      */
     public Locale getDefaultLocale() {
@@ -113,7 +113,7 @@ public class AbstractRenderableDefinition<RD extends RenderableDefinition> exten
     }
 
     /**
-     * Get fallback locale from config:/server/i18n/content@fallbackLocale
+     * Get fallback locale from beans:/server/i18n/content@fallbackLocale
      *
      * @return Locale
      */

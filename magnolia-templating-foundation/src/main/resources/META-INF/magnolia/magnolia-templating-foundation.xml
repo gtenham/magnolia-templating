@@ -15,12 +15,6 @@
             <implementation>nl.gertontenham.magnolia.templating.functions.FoundationTemplatingFunctions</implementation>
             <scope>singleton</scope>
         </component>
-        <component>
-            <type>nl.gertontenham.magnolia.templating.managers.SiteManager</type>
-            <implementation>nl.gertontenham.magnolia.templating.managers.SiteManager</implementation>
-            <scope>singleton</scope>
-        </component>
-
     </components>
 
     <dependencies>
