@@ -8,7 +8,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <magnoliaVersion>5.3.6</magnoliaVersion>
+        <magnoliaVersion>5.3.7</magnoliaVersion>
         <javaVersion>1.6</javaVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -39,6 +39,11 @@
                 <scope>import</scope>
             </dependency>
 
+            <!--<dependency>
+                <groupId>com.aperto.magkit</groupId>
+                <artifactId>magnolia-vanity-url</artifactId>
+                <version>1.3.2</version>
+            </dependency>-->
             <dependency>
                 <groupId>nl.gertontenham.magnolia</groupId>
                 <artifactId>magnolia-templating-foundation</artifactId>

@@ -26,6 +26,11 @@
             <groupId>info.magnolia</groupId>
             <artifactId>magnolia-module-groovy</artifactId>
         </dependency>
+
+        <!--<dependency>
+            <groupId>com.aperto.magkit</groupId>
+            <artifactId>magnolia-vanity-url</artifactId>
+        </dependency>-->
         <!-- Overlay Magnolia Empty Webapp. Alternatively, use the bundled-webapp or the enterprise-webapp. Dependencies versions are already imported by parent, so no need to replicate here. -->
         <dependency>
             <groupId>info.magnolia</groupId>
