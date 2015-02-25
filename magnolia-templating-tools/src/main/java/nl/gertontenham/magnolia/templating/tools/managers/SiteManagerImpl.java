@@ -1,10 +1,13 @@
 package nl.gertontenham.magnolia.templating.tools.managers;
 
+import info.magnolia.cms.beans.config.ServerConfiguration;
 import info.magnolia.cms.beans.config.URI2RepositoryMapping;
 import info.magnolia.cms.core.AggregationState;
+import info.magnolia.cms.i18n.I18nContentSupport;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.context.WebContext;
 import info.magnolia.jcr.util.NodeUtil;
+import info.magnolia.objectfactory.Components;
 import info.magnolia.repository.RepositoryConstants;
 import info.magnolia.templating.functions.TemplatingFunctions;
 import nl.gertontenham.magnolia.templating.FoundationTemplatingModule;
@@ -29,6 +32,7 @@ public class SiteManagerImpl implements SiteManager {
 
     private static final Logger log = LoggerFactory.getLogger(SiteManagerImpl.class);
 
+    private final ServerConfiguration serverConfig = Components.getComponent(ServerConfiguration.class);
     private FoundationTemplatingModule module;
     private Provider<AggregationState> aggregationStateProvider;
     private TemplatingFunctions templatingFunctions;
@@ -86,14 +90,11 @@ public class SiteManagerImpl implements SiteManager {
         Collection<URI2RepositoryMapping> mappings = new HashSet<URI2RepositoryMapping>(0);
 
         SiteConfig bestMatchedSiteConfig = getBestMatchedSite();
-        if (bestMatchedSiteConfig != null) {
+        if ( StringUtils.isNotBlank(bestMatchedSiteConfig.getMappedServerName())) {
             Node siteNode = templatingFunctions.nodeById(bestMatchedSiteConfig.getSitePageMap());
             try {
-                // TODO: Make uriPrefix depend on configured siteUriMapping
-                //String mappedServerPath = StringUtils.defaultIfEmpty(bestMatchedSiteConfig.getMappedServerPath(), "");
-                //String siteMappingPath = "/" + StringUtils.stripStart(mappedServerPath,"/");
+                // Make uriPrefix depend on configured siteUriMapping
                 String uriPrefix = getMappedServerPath(bestMatchedSiteConfig);
-                //String uriPrefix = StringUtils.defaultIfEmpty(siteMappingPath, "/");
                 log.debug("urimap {} to: {}", uriPrefix, siteNode.getPath());
                 URI2RepositoryMapping uriMapping = new URI2RepositoryMapping(uriPrefix, RepositoryConstants.WEBSITE, siteNode.getPath());
                 mappings.add(uriMapping);
@@ -108,12 +109,18 @@ public class SiteManagerImpl implements SiteManager {
         Map<Integer, SiteConfig> matchers = new HashMap<Integer, SiteConfig>(0);
         String originalBrowserUrl = aggregationStateProvider.get().getOriginalBrowserURL();
         String browserUrl = StringUtils.replaceOnce(originalBrowserUrl,SiteProxyBasedVirtualURIMapping.PAGES_PROXY,"");
-
+        String defaultBaseUrl = StringUtils.substringBefore(
+                StringUtils.replaceOnce(browserUrl,aggregationStateProvider.get().getCurrentURI(),"")
+                ,"?");
+        if (!StringUtils.endsWith(defaultBaseUrl,"/")) {
+            defaultBaseUrl = defaultBaseUrl + "/";
+        }
+        log.debug("Default base Url: " + defaultBaseUrl + " based on " + originalBrowserUrl);
+        // Setting default base url
+        serverConfig.setDefaultBaseUrl(defaultBaseUrl);
 
         for (SiteConfig site : getSites()) {
             if (StringUtils.isNotBlank(site.getMappedServerName())) {
-                //String siteMappingPath = StringUtils.defaultIfEmpty(site.getMappedServerPath(), "");
-                //String siteUri = StringUtils.stripEnd(site.getMappedServerName(),"/") + "/" + StringUtils.stripStart(siteMappingPath, "/");
                 String siteUri = StringUtils.stripEnd(site.getMappedServerName(),"/") + getMappedServerPath(site);
                 int bestMatch = StringUtils.getLevenshteinDistance(browserUrl, siteUri);
                 log.debug("Site {} match: {} with index {} on {}", site.getName(), siteUri, bestMatch, browserUrl);
@@ -121,6 +128,9 @@ public class SiteManagerImpl implements SiteManager {
             }
         }
         TreeMap<Integer, SiteConfig> treeMap = new TreeMap<Integer, SiteConfig>(matchers);
+        if (treeMap.size() == 0) {
+            return getDefaultSiteConfig();
+        }
         log.debug("Site best match: {}", treeMap.firstEntry().getValue().getMappedServerName());
         return treeMap.firstEntry().getValue();
     }
@@ -133,7 +143,7 @@ public class SiteManagerImpl implements SiteManager {
 
     private SiteConfig getDefaultSiteConfig() {
         SiteConfig siteConfig = new SiteConfig();
-
+        siteConfig.setName("default");
         return siteConfig;
     }
 }

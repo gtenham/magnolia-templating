@@ -156,10 +156,8 @@ public class BasePageRenderableDefinition<RD extends RenderableDefinition> exten
      *
      * @return absolute link for current page
      */
-    public String getAbsolutePageLink() {
-        StringBuilder pageUriSB = new StringBuilder(LinkUtil.createExternalLink(content)).
-                append(StringUtils.isBlank(queryString) ? "": "?"+queryString);
-        return pageUriSB.toString();
+    public String getAbsolutePageLink() throws RepositoryException {
+        return  templatingFunctions.getAbsolutePageLink(content);
     }
 
     /**

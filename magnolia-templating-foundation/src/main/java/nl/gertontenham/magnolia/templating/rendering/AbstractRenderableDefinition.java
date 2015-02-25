@@ -3,6 +3,7 @@ package nl.gertontenham.magnolia.templating.rendering;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.context.WebContext;
 import info.magnolia.jcr.util.ContentMap;
+import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.model.RenderingModelImpl;
 import info.magnolia.rendering.template.RenderableDefinition;
@@ -133,5 +134,13 @@ public class AbstractRenderableDefinition<RD extends RenderableDefinition> exten
             return true;
         }
         return false;
+    }
+
+    /**
+     * Get magnolia-templating-foundation module version number
+     * @return version
+     */
+    public String getModuleVersion() {
+        return templatingFunctions.getModuleVersion();
     }
 }

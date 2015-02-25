@@ -116,7 +116,7 @@ require.config({
 	urlArgs: "v=" +  mtf.version
 });
 
-require(['mtf-core','mgnl-resources'], function() {
+require(['mtf-core','mgnl-resources','modules/analytics'], function() {
 	// Main libs - Libraries and modules that will be needed on all pages of the site
 });
 

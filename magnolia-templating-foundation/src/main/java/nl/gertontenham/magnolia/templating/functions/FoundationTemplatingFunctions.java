@@ -2,11 +2,15 @@ package nl.gertontenham.magnolia.templating.functions;
 
 import info.magnolia.cms.core.AggregationState;
 import info.magnolia.cms.i18n.I18nContentSupport;
+import info.magnolia.context.MgnlContext;
+import info.magnolia.context.WebContext;
 import info.magnolia.jcr.util.ContentMap;
 import info.magnolia.jcr.util.NodeTypes;
+import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.jcr.wrapper.I18nNodeWrapper;
 import info.magnolia.link.LinkUtil;
 import info.magnolia.objectfactory.Components;
+import info.magnolia.repository.RepositoryConstants;
 import info.magnolia.templating.functions.TemplatingFunctions;
 import nl.gertontenham.magnolia.templating.FoundationTemplatingModule;
 import nl.gertontenham.magnolia.templating.beans.SiteConfig;
@@ -32,6 +36,8 @@ import java.util.Random;
 public class FoundationTemplatingFunctions extends TemplatingFunctions {
     private static final Logger log = LoggerFactory.getLogger(FoundationTemplatingFunctions.class);
 
+
+
     private enum Mode {
         DEV, BETA;
         @Override public String toString() {
@@ -43,6 +49,8 @@ public class FoundationTemplatingFunctions extends TemplatingFunctions {
     private SiteManager siteManager;
 
     private final I18nContentSupport i18n = Components.getComponent(I18nContentSupport.class);
+    private final WebContext webContext = MgnlContext.getWebContext();
+    private final String queryString = webContext.getRequest().getQueryString();
     private final Random randomizer = new Random();
 
 
@@ -196,6 +204,17 @@ public class FoundationTemplatingFunctions extends TemplatingFunctions {
         return relLink;
     }
 
+    /**
+     * Creates absolute link including context path to the provided node and performing all URI2Repository mappings and applying locales.
+     *
+     * @return absolute link for current page
+     */
+    public String getAbsolutePageLink(Node node) throws RepositoryException {
+        StringBuilder pageUriSB = new StringBuilder(LinkUtil.createExternalLink(page(node))).
+                append(StringUtils.isBlank(queryString) ? "": "?"+queryString);
+        return pageUriSB.toString();
+    }
+
     public boolean isDevMode() {
         return StringUtils.equalsIgnoreCase(module.getMode(), Mode.DEV.toString());
     }
@@ -211,5 +230,14 @@ public class FoundationTemplatingFunctions extends TemplatingFunctions {
      */
     public int getRandomNumber(int range) {
         return randomizer.nextInt(range);
+    }
+
+    /**
+     * Get magnolia-templating-foundation module version number
+     * @return version
+     */
+    public String getModuleVersion() {
+        Node node = nodeByPath("/modules/magnolia-templating-foundation", RepositoryConstants.CONFIG);
+        return StringUtils.lowerCase(PropertyUtil.getString(node, "version", "1.0.0"));
     }
 }

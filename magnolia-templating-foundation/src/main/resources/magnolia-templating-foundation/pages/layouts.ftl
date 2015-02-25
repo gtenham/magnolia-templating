@@ -27,40 +27,31 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
 
+    [@renderOpenGraph pageModel=model /]
+
     [#-- Setting global javascrip vars --]
     <script>
         mtf = window.mtf = window.mtf || {};
         // Setting global vars
         mtf.contextPath = "${contextPath}";
-        [#if (model.googleAnalytics?has_content)]
-        mtf.googleAccount = "${model.googleAnalytics}";
-        [/#if]
-        mtf.version = "1.0.0-SNAPSHOT";
+        mtf.version = "${model.moduleVersion}";
+        mtf.DNT = navigator.doNotTrack == "yes" || navigator.doNotTrack == "1" || navigator.msDoNotTrack == "1";
     </script>
     [#-- AMD loading javascript --]
     <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js" data-main="${contextPath}/static/js/main"></script>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]> 
-          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>          
-  	<![endif]-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
   </head>
-  <body>
+  <body [#if (model.googleAnalytics?has_content)]data-google-analytics="${model.googleAnalytics}"[/#if]>
         
     [#-- Content of different page types will be rendered here --]
     [#nested/]
-        
-    [#if (model.googleAnalytics?has_content)]
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-                    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-                e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-                e.src='//www.google-analytics.com/analytics.js';
-                r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create',mtf.googleAccount,'auto');ga('send','pageview');
-        </script>
 
-    [/#if]
   </body>
 </html>
 
