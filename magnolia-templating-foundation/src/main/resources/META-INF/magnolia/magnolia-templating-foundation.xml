@@ -39,5 +39,12 @@
                 <mapping>/static/*</mapping>
             </mappings>
         </servlet>
+        <servlet>
+            <name>TemplatesResourcesServlet</name>
+            <class>nl.gertontenham.magnolia.templating.servlets.TemplatesResourcesServlet</class>
+            <mappings>
+                <mapping>/tpl/*</mapping>
+            </mappings>
+        </servlet>
     </servlets>
 </module>

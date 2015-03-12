@@ -27,7 +27,7 @@ public class StaticResourcesServlet extends HttpServlet {
      */
     public static final String MTF_DEFAULT_RESOURCES_ROOT = "/static-resources";
 
-    private String resourcesRoot;
+    protected String resourcesRoot;
 
     /**
      * @see javax.servlet.GenericServlet#init()
@@ -56,6 +56,11 @@ public class StaticResourcesServlet extends HttpServlet {
         String filePath = getFilePath(request);
 
         streamSingleFile(request, response, filePath);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
     }
 
     private void streamSingleFile(HttpServletRequest request, HttpServletResponse response, String filePath) throws IOException {
@@ -97,7 +102,7 @@ public class StaticResourcesServlet extends HttpServlet {
         }
     }
 
-    private String getFilePath(HttpServletRequest request) {
+    protected String getFilePath(HttpServletRequest request) {
         // handle includes
         String filePath = (String) request.getAttribute("javax.servlet.include.path_info");
 
