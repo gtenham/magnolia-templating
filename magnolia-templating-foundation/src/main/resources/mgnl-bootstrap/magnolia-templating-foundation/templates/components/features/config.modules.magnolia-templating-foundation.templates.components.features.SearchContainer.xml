@@ -31,7 +31,7 @@
     <sv:value>superuser</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-    <sv:value>2015-01-06T19:27:15.834+01:00</sv:value>
+    <sv:value>2015-03-23T20:54:55.438+01:00</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
     <sv:value>superuser</sv:value>
@@ -92,6 +92,9 @@
       <sv:property sv:name="jcr:createdBy" sv:type="String">
         <sv:value>admin</sv:value>
       </sv:property>
+      <sv:property sv:name="maxComponents" sv:type="String">
+        <sv:value>7</sv:value>
+      </sv:property>
       <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
         <sv:value>false</sv:value>
       </sv:property>
@@ -108,10 +111,13 @@
         <sv:value>superuser</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2015-01-06T19:27:15.834+01:00</sv:value>
+        <sv:value>2015-03-29T22:11:33.501+02:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>superuser</sv:value>
+      </sv:property>
+      <sv:property sv:name="modelClass" sv:type="String">
+        <sv:value>nl.gertontenham.magnolia.templating.rendering.components.search.ResultsAreaRenderableDefinition</sv:value>
       </sv:property>
       <sv:property sv:name="templateScript" sv:type="String">
         <sv:value>/magnolia-templating-foundation/components/features/resultsArea.ftl</sv:value>

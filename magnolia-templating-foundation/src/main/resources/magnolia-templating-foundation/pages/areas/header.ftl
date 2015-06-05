@@ -4,6 +4,8 @@
 [#assign siteConfig = model.siteConfig! /]
 [#assign treeRoot = model.getTreeRoot(content)! /]
 [#assign isSelected = (treeRoot.@path == state.handle)!false /]
+[#assign searchTerm = ctx.parameters.s!?html /]
+[#assign currentPageNode = cmsfn.page(content)! /]
 
 <div class="nav-section">
 
@@ -34,17 +36,18 @@
             </ul>
 
             <ul class="extras right">
-                <li class="has-form search-bar">
-                    <form action="#" class="row collapse">
+            [#if (siteConfig.siteSearchResultsPage?has_content && (!siteConfig.siteSearchResultsPage?contains(currentPageNode.@id))) ]
+                 <li class="has-form search-bar">
+                    <form action="${cmsfn.link("website", siteConfig.siteSearchResultsPage)}" class="row collapse">
                         <div class="small-10 columns">
-                            <input type="text" name="s" placeholder="Search">
+                            <input type="text" name="s" placeholder="Search" value="${searchTerm!}">
                         </div>
                         <div class="small-2 columns">
                             <button class="button expand"><i class="fa fa-search"></i></button>
                         </div>
                     </form>
                 </li>
-
+            [/#if]
             [#if mtffn.localisationEnabled!false]
                 <li class="has-dropdown language-switcher">
                     <a>${mtffn.defaultLocaleCode?upper_case}</a>

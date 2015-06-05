@@ -15,6 +15,7 @@ public class SiteConfig {
     private Boolean sslEnabled;
     private String mappedServerName;
     private String mappedServerPath;
+    private String siteSearchResultsPage;
 
     public String getName() {
         return name;
@@ -94,5 +95,13 @@ public class SiteConfig {
 
     public void setMappedServerPath(String mappedServerPath) {
         this.mappedServerPath = mappedServerPath;
+    }
+
+    public String getSiteSearchResultsPage() {
+        return siteSearchResultsPage;
+    }
+
+    public void setSiteSearchResultsPage(String siteSearchResultsPage) {
+        this.siteSearchResultsPage = siteSearchResultsPage;
     }
 }

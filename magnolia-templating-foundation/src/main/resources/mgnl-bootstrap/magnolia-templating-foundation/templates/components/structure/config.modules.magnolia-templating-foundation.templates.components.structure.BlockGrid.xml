@@ -40,7 +40,7 @@
     <sv:value>superuser</sv:value>
   </sv:property>
   <sv:property sv:name="modelClass" sv:type="String">
-    <sv:value>nl.tricode.magnolia.templating.rendering.components.BlockGridRenderableDefinition</sv:value>
+    <sv:value>nl.gertontenham.magnolia.templating.rendering.components.BaseComponentRenderableDefinition</sv:value>
   </sv:property>
   <sv:property sv:name="renderType" sv:type="String">
     <sv:value>freemarker</sv:value>
@@ -276,41 +276,6 @@
           </sv:property>
           <sv:property sv:name="id" sv:type="String">
             <sv:value>magnolia-templating-foundation:components/media/SocialShareButtons</sv:value>
-          </sv:property>
-          <sv:property sv:name="jcr:createdBy" sv:type="String">
-            <sv:value>admin</sv:value>
-          </sv:property>
-          <sv:property sv:name="mgnl:activationStatus" sv:type="Boolean">
-            <sv:value>false</sv:value>
-          </sv:property>
-          <sv:property sv:name="mgnl:created" sv:type="Date">
-            <sv:value>2015-01-06T19:26:00.591+01:00</sv:value>
-          </sv:property>
-          <sv:property sv:name="mgnl:createdBy" sv:type="String">
-            <sv:value>superuser</sv:value>
-          </sv:property>
-          <sv:property sv:name="mgnl:lastActivated" sv:type="Date">
-            <sv:value>2015-01-06T19:26:00.595+01:00</sv:value>
-          </sv:property>
-          <sv:property sv:name="mgnl:lastActivatedBy" sv:type="String">
-            <sv:value>superuser</sv:value>
-          </sv:property>
-          <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-            <sv:value>2015-01-06T19:26:11.402+01:00</sv:value>
-          </sv:property>
-          <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
-            <sv:value>superuser</sv:value>
-          </sv:property>
-        </sv:node>
-        <sv:node sv:name="pageTeaser">
-          <sv:property sv:name="jcr:primaryType" sv:type="Name">
-            <sv:value>mgnl:contentNode</sv:value>
-          </sv:property>
-          <sv:property sv:name="jcr:uuid" sv:type="String">
-            <sv:value>ca981fda-1201-4cc1-a939-e978a21fa479</sv:value>
-          </sv:property>
-          <sv:property sv:name="id" sv:type="String">
-            <sv:value>tricode-site:components/content/pageTeaser</sv:value>
           </sv:property>
           <sv:property sv:name="jcr:createdBy" sv:type="String">
             <sv:value>admin</sv:value>

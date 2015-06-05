@@ -1,4 +1,4 @@
-package nl.gertontenham.magnolia.templating.crypto;
+package nl.gertontenham.magnolia.templating.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
  * SHA message digest class
  *
  */
-public class SHA {
+public class SHAHash {
     /**
      * Hash message using SHA-256 digester
      *

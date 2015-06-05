@@ -34,13 +34,13 @@
     <sv:value>superuser</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-    <sv:value>2015-01-06T19:27:11.570+01:00</sv:value>
+    <sv:value>2015-03-29T22:09:17.344+02:00</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
     <sv:value>superuser</sv:value>
   </sv:property>
   <sv:property sv:name="modelClass" sv:type="String">
-    <sv:value>nl.tricode.magnolia.templating.rendering.components.SearchResultRenderableDefinition</sv:value>
+    <sv:value>nl.gertontenham.magnolia.templating.rendering.components.search.ResultsRenderableDefinition</sv:value>
   </sv:property>
   <sv:property sv:name="renderType" sv:type="String">
     <sv:value>freemarker</sv:value>
