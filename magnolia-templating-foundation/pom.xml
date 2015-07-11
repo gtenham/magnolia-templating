@@ -19,20 +19,18 @@
         </dependency>
         <dependency>
             <groupId>info.magnolia</groupId>
-            <artifactId>magnolia-module-inplace-templating</artifactId>
+            <artifactId>magnolia-rendering</artifactId>
         </dependency>
         <dependency>
             <groupId>info.magnolia</groupId>
             <artifactId>magnolia-templating</artifactId>
         </dependency>
-        <dependency>
-            <groupId>info.magnolia</groupId>
-            <artifactId>magnolia-module-resources</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>info.magnolia.dam</groupId>
             <artifactId>magnolia-dam</artifactId>
         </dependency>
+
 
         <dependency>
             <groupId>javax.servlet</groupId>

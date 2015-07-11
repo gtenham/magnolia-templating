@@ -10,12 +10,13 @@ import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.jcr.wrapper.I18nNodeWrapper;
 import info.magnolia.link.LinkUtil;
 import info.magnolia.objectfactory.Components;
+import info.magnolia.rendering.template.type.TemplateTypeHelper;
 import info.magnolia.repository.RepositoryConstants;
 import info.magnolia.templating.functions.TemplatingFunctions;
 import nl.gertontenham.magnolia.templating.FoundationTemplatingModule;
 import nl.gertontenham.magnolia.templating.beans.SiteConfig;
 import nl.gertontenham.magnolia.templating.managers.SiteManager;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -56,8 +57,8 @@ public class FoundationTemplatingFunctions extends TemplatingFunctions {
 
     //TODO: aggregationStateProvider is needed in constructor of TemplatingFunctions, but might be changed in future by Magnolia
     @Inject
-    public FoundationTemplatingFunctions(Provider<AggregationState> aggregationStateProvider, FoundationTemplatingModule module, SiteManager siteManager) {
-        super(aggregationStateProvider);
+    public FoundationTemplatingFunctions(Provider<AggregationState> aggregationStateProvider, FoundationTemplatingModule module, SiteManager siteManager, TemplateTypeHelper templateTypeFunctions) {
+        super(aggregationStateProvider, templateTypeFunctions);
         this.module = module;
         this.siteManager = siteManager;
     }

@@ -20,11 +20,11 @@
     <dependencies>
         <dependency>
             <name>core</name>
-            <version>5.3/*</version>
+            <version>${magnoliaVersion}</version>
         </dependency>
         <dependency>
             <name>ui-admincentral</name>
-            <version>5.3/*</version>
+            <version>${magnoliaVersion}</version>
         </dependency>
         <dependency>
             <name>magnolia-templating-foundation</name>

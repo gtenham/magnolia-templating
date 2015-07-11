@@ -3,7 +3,6 @@ package nl.gertontenham.magnolia.templating.setup;
 import info.magnolia.module.DefaultModuleVersionHandler;
 import info.magnolia.module.InstallContext;
 import info.magnolia.module.delta.Task;
-import info.magnolia.module.inplacetemplating.setup.TemplatesInstallTask;
 import info.magnolia.module.model.Version;
 
 import java.util.ArrayList;
@@ -43,8 +42,7 @@ public class FoundationTemplatingModuleVersionHandler extends DefaultModuleVersi
 
     protected List<Task> getGenericTasks() {
         final List<Task> tasks = new ArrayList<Task>();
-        tasks.add(new TemplatesInstallTask(DEFAULT_MOD_PATH+".*\\.ftl", true));
-        //tasks.add(new ModuleDependencyBootstrapTask("/mgnl-bootstrap/optional", "tricode-tags"));
+        //tasks.add(new TemplatesInstallTask(DEFAULT_MOD_PATH+".*\\.ftl", true));
 
         return tasks;
     }

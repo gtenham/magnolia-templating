@@ -2,7 +2,6 @@ package nl.gertontenham.magnolia.templating.servlets;
 
 import freemarker.template.TemplateException;
 import info.magnolia.freemarker.FreemarkerHelper;
-import info.magnolia.freemarker.FreemarkerUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

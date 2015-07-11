@@ -7,7 +7,7 @@ import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.template.RenderableDefinition;
 import nl.gertontenham.magnolia.templating.functions.FoundationTemplatingFunctions;
 import nl.gertontenham.magnolia.templating.rendering.AbstractRenderableDefinition;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.commons.predicate.NodeTypePredicate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +15,6 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Inject;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 
 /**
  * Component renderable definition which can be used as the base renderable definition class for components

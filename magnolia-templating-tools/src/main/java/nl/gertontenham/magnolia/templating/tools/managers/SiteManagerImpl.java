@@ -3,10 +3,6 @@ package nl.gertontenham.magnolia.templating.tools.managers;
 import info.magnolia.cms.beans.config.ServerConfiguration;
 import info.magnolia.cms.beans.config.URI2RepositoryMapping;
 import info.magnolia.cms.core.AggregationState;
-import info.magnolia.cms.i18n.I18nContentSupport;
-import info.magnolia.context.MgnlContext;
-import info.magnolia.context.WebContext;
-import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.objectfactory.Components;
 import info.magnolia.repository.RepositoryConstants;
 import info.magnolia.templating.functions.TemplatingFunctions;
@@ -14,7 +10,7 @@ import nl.gertontenham.magnolia.templating.FoundationTemplatingModule;
 import nl.gertontenham.magnolia.templating.beans.SiteConfig;
 import nl.gertontenham.magnolia.templating.managers.SiteManager;
 import nl.gertontenham.magnolia.templating.tools.beans.SiteProxyBasedVirtualURIMapping;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +18,6 @@ import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
-import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 /**

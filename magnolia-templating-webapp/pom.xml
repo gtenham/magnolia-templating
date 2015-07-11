@@ -22,15 +22,6 @@
             <artifactId>magnolia-templating-tools</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>info.magnolia</groupId>
-            <artifactId>magnolia-module-groovy</artifactId>
-        </dependency>
-
-        <!--<dependency>
-            <groupId>com.aperto.magkit</groupId>
-            <artifactId>magnolia-vanity-url</artifactId>
-        </dependency>-->
         <!-- Overlay Magnolia Empty Webapp. Alternatively, use the bundled-webapp or the enterprise-webapp. Dependencies versions are already imported by parent, so no need to replicate here. -->
         <dependency>
             <groupId>info.magnolia</groupId>
@@ -42,6 +33,34 @@
             <artifactId>magnolia-empty-webapp</artifactId>
             <type>war</type>
         </dependency>
+
+        <!-- Magnolia Community Edition modules-->
+        <dependency>
+            <groupId>info.magnolia</groupId>
+            <artifactId>magnolia-module-legacy-admininterface</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>info.magnolia</groupId>
+            <artifactId>magnolia-module-groovy</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>info.magnolia</groupId>
+            <artifactId>magnolia-module-mail</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>info.magnolia.rest</groupId>
+            <artifactId>magnolia-rest-tools</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>info.magnolia.rest</groupId>
+            <artifactId>magnolia-rest-integration</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>info.magnolia.rest</groupId>
+            <artifactId>magnolia-rest-services</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

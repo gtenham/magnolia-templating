@@ -13,7 +13,7 @@ import nl.gertontenham.magnolia.templating.functions.FoundationTemplatingFunctio
 import nl.gertontenham.magnolia.templating.rendering.ResultsRenderingModel;
 import nl.gertontenham.magnolia.templating.rendering.components.BaseComponentRenderableDefinition;
 import nl.gertontenham.magnolia.templating.utils.RenderingUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

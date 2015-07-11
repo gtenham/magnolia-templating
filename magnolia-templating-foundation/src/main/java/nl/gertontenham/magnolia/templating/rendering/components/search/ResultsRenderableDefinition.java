@@ -1,20 +1,16 @@
 package nl.gertontenham.magnolia.templating.rendering.components.search;
 
-import com.google.common.collect.LinkedListMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.rendering.model.RenderingModel;
 import info.magnolia.rendering.template.RenderableDefinition;
-import nl.gertontenham.magnolia.templating.search.SearchException;
-import nl.gertontenham.magnolia.templating.search.SearchResult;
 import nl.gertontenham.magnolia.templating.functions.FoundationTemplatingFunctions;
 import nl.gertontenham.magnolia.templating.rendering.ResultsRenderingModel;
-import nl.gertontenham.magnolia.templating.rendering.components.BaseComponentRenderableDefinition;
+import nl.gertontenham.magnolia.templating.search.SearchException;
+import nl.gertontenham.magnolia.templating.search.SearchResult;
 import nl.gertontenham.magnolia.templating.search.SearchService;
 import nl.gertontenham.magnolia.templating.utils.RenderingUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +20,6 @@ import javax.jcr.RepositoryException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Search results renderable definition which can be used as the modelClass for presenting search results in freemarker template.

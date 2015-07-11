@@ -9,7 +9,7 @@ import info.magnolia.rendering.template.RenderableDefinition;
 import nl.gertontenham.magnolia.templating.beans.SiteConfig;
 import nl.gertontenham.magnolia.templating.functions.FoundationTemplatingFunctions;
 import nl.gertontenham.magnolia.templating.rendering.AbstractRenderableDefinition;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
