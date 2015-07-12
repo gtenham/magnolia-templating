@@ -14,13 +14,13 @@ import java.util.HashMap;
 /**
  * Servlet endpoint for templates processed by Freemarker engine.
  */
-public class TemplatesResourcesServlet extends StaticResourcesServlet {
+public class FreemarkerTemplatesResourcesServlet extends StaticResourcesServlet {
 
-    private static final Logger log = LoggerFactory.getLogger(TemplatesResourcesServlet.class);
+    private static final Logger log = LoggerFactory.getLogger(FreemarkerTemplatesResourcesServlet.class);
     private final FreemarkerHelper fmHelper;
 
     @Inject
-    public TemplatesResourcesServlet(FreemarkerHelper fmHelper) {
+    public FreemarkerTemplatesResourcesServlet(FreemarkerHelper fmHelper) {
         this.fmHelper = fmHelper;
     }
 
@@ -36,6 +36,10 @@ public class TemplatesResourcesServlet extends StaticResourcesServlet {
             fmHelper.render(resourcesRoot + filePath, map, response.getWriter());
         } catch (TemplateException e) {
             log.error("Error during rendering freemarker template", e);
+        } catch (IOException e) {
+            if (!response.isCommitted()) {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            }
         }
     }
 }

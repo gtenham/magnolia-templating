@@ -47,6 +47,10 @@
             <groupId>info.magnolia</groupId>
             <artifactId>magnolia-module-mail</artifactId>
         </dependency>
+        <dependency>
+            <groupId>info.magnolia.dam</groupId>
+            <artifactId>magnolia-dam</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>info.magnolia.rest</groupId>

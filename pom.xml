@@ -9,6 +9,8 @@
 
     <properties>
         <magnoliaVersion>5.4</magnoliaVersion>
+        <handlebarsVersion>2.2.2</handlebarsVersion>
+        <damVersion>2.1</damVersion>
         <javaVersion>1.7</javaVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -53,6 +55,48 @@
                 <groupId>nl.gertontenham.magnolia</groupId>
                 <artifactId>magnolia-templating-tools</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>info.magnolia.dam</groupId>
+                <artifactId>magnolia-dam-api</artifactId>
+                <version>${damVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>info.magnolia.dam</groupId>
+                <artifactId>magnolia-dam-app</artifactId>
+                <version>${damVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>info.magnolia.dam</groupId>
+                <artifactId>magnolia-dam-compatibility</artifactId>
+                <version>${damVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>info.magnolia.dam</groupId>
+                <artifactId>magnolia-dam-core</artifactId>
+                <version>${damVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>info.magnolia.dam</groupId>
+                <artifactId>magnolia-dam-jcr</artifactId>
+                <version>${damVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>info.magnolia.dam</groupId>
+                <artifactId>magnolia-dam-templating</artifactId>
+                <version>${damVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>info.magnolia.dam</groupId>
+                <artifactId>magnolia-dam-imaging</artifactId>
+                <version>${damVersion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.jknack</groupId>
+                <artifactId>handlebars</artifactId>
+                <version>${handlebarsVersion}</version>
             </dependency>
 
             <dependency>

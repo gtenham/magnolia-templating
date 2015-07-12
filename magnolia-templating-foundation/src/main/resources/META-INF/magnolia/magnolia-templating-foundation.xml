@@ -47,11 +47,30 @@
             </mappings>
         </servlet>
         <servlet>
-            <name>TemplatesResourcesServlet</name>
-            <class>nl.gertontenham.magnolia.templating.servlets.TemplatesResourcesServlet</class>
+            <name>FreemarkerTemplatesResourcesServlet</name>
+            <class>nl.gertontenham.magnolia.templating.servlets.FreemarkerTemplatesResourcesServlet</class>
+            <comment>Parse templates in Freemarker and return as a string</comment>
             <mappings>
-                <mapping>/tpl/*</mapping>
+                <mapping>/tpl-frm/*</mapping>
             </mappings>
+        </servlet>
+        <servlet>
+            <name>HandlebarsTemplatesResourcesServlet</name>
+            <class>nl.gertontenham.magnolia.templating.servlets.HandlebarsTemplatesResourcesServlet</class>
+            <comment>Parse templates in Freemarker and Handlebars and return as pre-compiled javascript function</comment>
+            <mappings>
+                <mapping>/tpl-hbs/*</mapping>
+            </mappings>
+            <params>
+                <param>
+                    <name>suffix</name>
+                    <value>.html</value>
+                </param>
+                <param>
+                    <name>jswrapper</name>
+                    <value>amd</value>
+                </param>
+            </params>
         </servlet>
     </servlets>
 </module>

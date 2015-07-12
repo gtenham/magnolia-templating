@@ -26,11 +26,19 @@
             <artifactId>magnolia-templating</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>info.magnolia.dam</groupId>
-            <artifactId>magnolia-dam</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>info.magnolia.dam</groupId>-->
+            <!--<artifactId>magnolia-dam</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>info.magnolia.dam</groupId>-->
+            <!--<artifactId>magnolia-dam-templating</artifactId>-->
+        <!--</dependency>-->
 
+        <dependency>
+            <groupId>com.github.jknack</groupId>
+            <artifactId>handlebars</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
