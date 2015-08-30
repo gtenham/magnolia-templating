@@ -3,7 +3,7 @@ magnolia-templating
 
 [Magnolia cms](http://www.magnolia-cms.com) templating kit based on [Foundation for Sites](http://foundation.zurb.com/)
 
-Are we A-OK?
+Are we OK?
 
 [![Build Status](https://travis-ci.org/gtenham/magnolia-templating.svg?branch=master)](https://travis-ci.org/gtenham/magnolia-templating)
 
@@ -28,6 +28,18 @@ For more information on running Magnolia look here:
 [http://documentation.magnolia-cms.com/display/DOCS/Creating+a+custom+bundle][1]
 
 [1]: http://documentation.magnolia-cms.com/display/DOCS/Creating+a+custom+bundle#Creatingacustombundle-Runtheproject
+
+## Features
+* Based on Foundation for Sites and Magnolia 5.4
+* Site manager app
+* Content tag manager app
+* Page templates: Advanced page and Basic article page
+* Basic component set eg. Section, Blockgrid, Header, Text, Link list etc
+* Domain to Root page mapping
+* Content search
+* Remote Client side templates:
+  * Handlebars pre-compiled javascript
+  * Freemarker pre-processed html
 
 ##License
 Copyright (c) 2015 Gerton ten Ham and contributors. Released under a [GNUv3 license](https://github.com/gtenham/magnolia-templating/blob/master/LICENSE).

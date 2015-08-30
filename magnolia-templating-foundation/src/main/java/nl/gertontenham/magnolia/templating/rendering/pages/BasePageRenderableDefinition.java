@@ -152,6 +152,16 @@ public class BasePageRenderableDefinition<RD extends RenderableDefinition> exten
     }
 
     /**
+     * Get property value for site theme name
+     *
+     * @return String
+     * @throws RepositoryException
+     */
+    public String getSiteTheme() throws RepositoryException {
+        return StringUtils.defaultIfEmpty(getSiteConfig().getSiteTheme(),"standard");
+    }
+
+    /**
      * Creates absolute link including context path to the provided node and performing all URI2Repository mappings and applying locales.
      *
      * @return absolute link for current page

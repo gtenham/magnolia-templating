@@ -25,15 +25,23 @@
             <groupId>info.magnolia</groupId>
             <artifactId>magnolia-templating</artifactId>
         </dependency>
+        <dependency>
+            <groupId>info.magnolia.dam</groupId>
+            <artifactId>magnolia-dam-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>info.magnolia.dam</groupId>
+            <artifactId>magnolia-dam-templating</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>info.magnolia.resources</groupId>
+            <artifactId>magnolia-resources</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>info.magnolia.resources</groupId>
+            <artifactId>magnolia-resources-app</artifactId>
+        </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>info.magnolia.dam</groupId>-->
-            <!--<artifactId>magnolia-dam</artifactId>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>info.magnolia.dam</groupId>-->
-            <!--<artifactId>magnolia-dam-templating</artifactId>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>com.github.jknack</groupId>

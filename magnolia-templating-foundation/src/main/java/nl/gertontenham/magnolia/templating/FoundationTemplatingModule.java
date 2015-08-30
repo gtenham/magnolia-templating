@@ -1,5 +1,7 @@
 package nl.gertontenham.magnolia.templating;
 
+import com.google.inject.AbstractModule;
+import nl.gertontenham.magnolia.templating.beans.AvailabilityConfig;
 import nl.gertontenham.magnolia.templating.beans.SiteConfig;
 
 import java.util.HashMap;
@@ -14,7 +16,8 @@ import java.util.Map;
 public class FoundationTemplatingModule {
     /* you can optionally implement info.magnolia.module.ModuleLifecycle */
     private String mode;
-    private Map<String,SiteConfig> sites = new HashMap<String, SiteConfig>();
+    private Map<String,SiteConfig> sites = new HashMap<>();
+    private Map<String, AvailabilityConfig> componentAvailability = new HashMap<>();
 
 
     public String getMode() {
@@ -36,4 +39,18 @@ public class FoundationTemplatingModule {
     public void addSite(String name, SiteConfig site){
         this.sites.put(name, site);
     }
+
+
+    public Map<String, AvailabilityConfig> getComponentAvailability() {
+        return componentAvailability;
+    }
+
+    public void setComponentAvailability(Map<String, AvailabilityConfig> componentAvailability) {
+        this.componentAvailability = componentAvailability;
+    }
+    public void addComponentAvailability(String name, AvailabilityConfig componentAvailability){
+        this.componentAvailability.put(name, componentAvailability);
+    }
+
+
 }

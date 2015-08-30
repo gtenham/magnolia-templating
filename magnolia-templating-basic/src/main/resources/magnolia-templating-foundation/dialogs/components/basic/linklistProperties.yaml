@@ -1,0 +1,33 @@
+form:
+  i18nBasename: mgnl-i18n.magnolia-templating-foundation-basic-dialogs
+  label: magnolia-templating-foundation.components.basic.linklist.label
+  tabs:
+    - name: tabMain
+      label: magnolia-templating-foundation.basic.tabs.tabMain.label
+      fields:
+        - name: listStyle
+          class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+          required: true
+          label: magnolia-templating-foundation.components.basic.linklist.tabMain.listStyle.label
+          description: magnolia-templating-foundation.components.basic.linklist.tabMain.listStyle.description
+          options:
+             - name: disc
+               value: disc
+               selected: true
+               label: magnolia-templating-foundation.components.basic.linklist.tabMain.listStyle.options.disc
+             - name: circle
+               value: circle
+               label: magnolia-templating-foundation.components.basic.linklist.tabMain.listStyle.options.circle
+             - name: square
+               value: square
+               label: magnolia-templating-foundation.components.basic.linklist.tabMain.listStyle.options.square
+             - name: nobullet
+               value: no-bullet
+               label: magnolia-templating-foundation.components.basic.linklist.tabMain.listStyle.options.nobullet
+             - name: ordered
+               value: ordered
+               label: magnolia-templating-foundation.components.basic.linklist.tabMain.listStyle.options.ordered
+             - name: inline
+               value: inline-list
+               label: magnolia-templating-foundation.components.basic.linklist.tabMain.listStyle.options.inline
+actions: !include /magnolia-templating-foundation/dialogs/includes/actions-block.yaml

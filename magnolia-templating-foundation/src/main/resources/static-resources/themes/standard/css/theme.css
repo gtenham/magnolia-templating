@@ -1,0 +1,170 @@
+/* Media aware small styling*/
+header[role="banner"] {
+    height: 50px;
+    background: #31353d;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+header[role="banner"] #logo {
+    margin-top: -5px;
+    /* delete this property if you don't want your logo to scale down on mobile devices */
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+}
+header[role="banner"] .icon-bar a {
+    padding: 1.1rem;
+}
+header[role="banner"] .icon-bar a > i {
+    font-size: 0.9rem;
+}
+
+header[role="banner"] .icon-bar a:hover {
+    background: #435779;
+    color: #FFF;
+}
+*[class^="off-canvas"] {
+    width: 260px;
+    /* header height */
+    padding-top: 50px;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.off-canvas-left {
+    -webkit-transition: left 0.3s;
+    -moz-transition: left 0.3s;
+    transition: left 0.3s;
+}
+.off-canvas-left.visible {
+    background: #fff;
+}
+.off-canvas-right {
+    -webkit-transition: right 0.3s;
+    -moz-transition: right 0.3s;
+    transition: right 0.3s;
+}
+#off-canvas-right.visible {
+    background: #fff;
+}
+#main-nav ul a {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 1em;
+    border-bottom: 1px solid #e0e6ef;
+    color: #435779;
+}
+#main-nav ul a.active {
+    box-shadow: inset 3px 0 #435779;
+}
+#site-search, #more-nav {
+    height: 50px;
+    top: 50px;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
+}
+#site-search.visible, #more-nav.visible {
+    background: #e2e3df;
+    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+    -moz-transition: opacity .3s 0s, visibility 0s 0s;
+    transition: opacity .3s 0s, visibility 0s 0s;
+}
+#site-search form input {
+    padding: 0 2em;
+    font-size: 2rem;
+    border-radius: 0;
+    border: none;
+    background: #ffffff;
+    height: 100%;
+    width: 100%;
+    box-shadow: inset 0 1px 0 #e2e3df, 0 3px 6px rgba(0, 0, 0, 0.05);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+main[role="main"] {
+    margin-top: 50px;
+}
+
+
+
+
+#page-content > article > * > *, #page-content > section > * > *, #page-footer > section > * > *{
+    padding: 0 0.875rem 0;
+}
+a[name] {
+    visibility: collapse;
+}
+
+/* Media aware medium styling*/
+@media only screen and (min-width: 40.063em) {
+
+}
+/* Media aware large and up styling*/
+@media only screen and (min-width: 64.063em) {
+    header[role="banner"] {
+        height: 70px;
+    }
+    header[role="banner"] #logo {
+        /* logo position on Desktop */
+        top: 5px;
+        left: 2em;
+        margin-top: 0;
+        /* delete this property if you don't want your logo to scale down on mobile devices */
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    header[role="banner"] .icon-bar a {
+        padding: 1.5rem;
+    }
+    header[role="banner"] .icon-bar a > i {
+        font-size: 1.3rem;
+    }
+    *[class^="off-canvas"] {
+        /* header height has changed */
+        padding-top: 70px;
+    }
+    #main-nav {
+        /* reset main nav style */
+        right: 15em;
+        padding-top: 0;
+        top: 15px;
+        background: transparent;
+        box-shadow: none;
+        /* header height */
+        line-height: 70px;
+    }
+    #main-nav li {
+        margin-left: 1em;
+    }
+    #main-nav ul a {
+        height: auto;
+        line-height: 1;
+        padding: 1em 1.4em;
+        border-bottom: none;
+        color: rgba(255, 255, 255, 0.8);
+        border-radius: 0.25em;
+    }
+    #main-nav ul a.active {
+        box-shadow: none;
+        background: #435779;
+        color: #fff;
+    }
+    .no-touch #main-nav ul a:hover {
+        background: #435779;
+        color: #fff;
+    }
+    #site-search, #more-nav {
+        top: 70px;
+    }
+    main[role="main"] {
+        margin-top: 70px;
+    }
+}

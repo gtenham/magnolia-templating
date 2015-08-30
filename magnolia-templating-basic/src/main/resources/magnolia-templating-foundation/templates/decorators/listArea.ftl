@@ -1,0 +1,12 @@
+[#import "/magnolia-templating-foundation/templates/macros/utils.ftl" as utils /]
+[#assign wrapElementName = def.parameters.wrapElement! /]
+[#assign emptyMessage = def.parameters.emptyMsg!"This area is empty. Expand it by adding components." /]
+[#assign categoryListArea = def.parameters.category! /]
+
+[@utils.listArea message = emptyMessage]
+    [#list components as component]
+        [#if (wrapElementName?has_content)]<${wrapElementName}>[/#if]
+            [@cms.component content=component contextAttributes={"index":component_index+1, "category":categoryListArea} /]
+        [#if (wrapElementName?has_content)]</${wrapElementName}>[/#if]
+    [/#list]
+[/@utils.listArea]

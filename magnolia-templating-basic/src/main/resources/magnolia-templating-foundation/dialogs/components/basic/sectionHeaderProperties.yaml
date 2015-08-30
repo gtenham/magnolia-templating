@@ -1,0 +1,40 @@
+form:
+  i18nBasename: mgnl-i18n.magnolia-templating-foundation-basic-dialogs
+  label: magnolia-templating-foundation.components.basic.sectionHeader.label
+  tabs:
+    - name: tabMain
+      label: magnolia-templating-foundation.basic.tabs.tabMain.label
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: magnolia-templating-foundation.components.basic.sectionHeader.tabMain.title.label
+          description: magnolia-templating-foundation.components.basic.sectionHeader.tabMain.title.description
+          i18n: true
+          required: true
+        - name: titleType
+          class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+          label: magnolia-templating-foundation.components.basic.sectionHeader.tabMain.titleType.label
+          description: magnolia-templating-foundation.components.basic.sectionHeader.tabMain.titleType.description
+          defaultValue: h2
+          required: true
+          options:
+             - name: large
+               value: h1
+               selected: true
+               label: magnolia-templating-foundation.components.basic.sectionHeader.tabMain.titleType.options.large
+             - name: medium
+               value: h2
+               label: magnolia-templating-foundation.components.basic.sectionHeader.tabMain.titleType.options.medium
+             - name: small
+               value: h3
+               label: magnolia-templating-foundation.components.basic.sectionHeader.tabMain.titleType.options.small
+             - name: xsmall
+               value: h4
+               label: magnolia-templating-foundation.components.basic.sectionHeader.tabMain.titleType.options.xsmall
+        - name: tagLine
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: magnolia-templating-foundation.components.basic.sectionHeader.tabMain.tagLine.label
+          description: magnolia-templating-foundation.components.basic.sectionHeader.tabMain.tagLine.description
+          i18n: true
+          rows: 4
+actions: !include /magnolia-templating-foundation/dialogs/includes/actions-block.yaml

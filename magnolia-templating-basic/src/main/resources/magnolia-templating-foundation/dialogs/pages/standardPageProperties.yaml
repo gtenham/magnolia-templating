@@ -1,0 +1,79 @@
+form:
+  tabs:
+    - name: tabMain
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+        - name: hidePageTitle
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          defaultValue: false
+          selected: true
+          label:
+        - name: windowTitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+        - name: navigationTitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+        - name: hideInNav
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          defaultValue: false
+          selected: false
+        - name: hideBreadcrumbs
+          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+          defaultValue: false
+          selected: true
+          label:
+        - name: abstract
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+          rows: 5
+    - name: tabMetaData
+      fields:
+        - name: keywords
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+          rows: 3
+        - name: description
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+          rows: 5
+        - name: robots
+          class: info.magnolia.ui.form.field.definition.SelectFieldDefinition
+          defaultValue: index, follow
+          options:
+              - name: index-follow
+                value: index, follow
+                selected: true
+              - name: noindex-follow
+                value: noindex, follow
+                selected: false
+              - name: index-nofollow
+                value: index, nofollow
+                selected: false
+              - name: noindex-nofollow
+                value: noindex, nofollow
+                selected: false
+        - name: tagFilterLink
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          targetWorkspace: mtf-tools
+          appName: tags-manager
+          identifierToPathConverter:
+             class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
+    - name: tabChannels
+      fields:
+        - name: excludeChannels
+          class: info.magnolia.ui.form.field.definition.TwinColSelectFieldDefinition
+          path: /Channels
+          repository: mtf-tools
+          sortOptions: false
+          labelProperty: name
+          valueProperty: name
+          leftColumnCaption: Available channels
+          rightColumnCaption: Exclude for channels
+actions:
+  commit:
+    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+  cancel:
+    class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

@@ -1,0 +1,6 @@
+templateScript: /magnolia-templating-foundation/templates/components/basic/sectionHeader.ftl
+dialog: magnolia-templating-foundation:components/basic/sectionHeaderProperties
+renderType: freemarker
+modelClass: nl.gertontenham.magnolia.templating.rendering.components.BaseComponentRenderableDefinition
+i18nBasename: mgnl-i18n.magnolia-templating-basic
+title: magnolia-templating-foundation.templates.components.basic.sectionheader.title

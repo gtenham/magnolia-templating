@@ -22,7 +22,7 @@ import javax.jcr.RepositoryException;
 public class BaseComponentRenderableDefinition<RD extends RenderableDefinition> extends AbstractRenderableDefinition<RD> {
 
     private static final Logger log = LoggerFactory.getLogger(BaseComponentRenderableDefinition.class);
-    private static final String TAG_WORKSPACE = "collaboration";
+    private static final String TAG_WORKSPACE = "mtf-tools";
 
     @Inject
     public BaseComponentRenderableDefinition(Node content, RD definition, RenderingModel<?> parent, FoundationTemplatingFunctions templatingFunctions) {
@@ -30,9 +30,10 @@ public class BaseComponentRenderableDefinition<RD extends RenderableDefinition> 
     }
 
     public String getTagFilterName()  {
-        String tagname = PropertyUtil.getString(content, "tagFilterLink", StringUtils.EMPTY);
-        if (StringUtils.isNotBlank(tagname)) {
-            Node tag = templatingFunctions.nodeById(tagname, TAG_WORKSPACE);
+        String tagId = PropertyUtil.getString(content, "tagFilterLink", StringUtils.EMPTY);
+        String tagname = StringUtils.EMPTY;
+        if (StringUtils.isNotBlank(tagId)) {
+            Node tag = templatingFunctions.nodeById(tagId, TAG_WORKSPACE);
             try {
                 tagname = tag.getName();
             } catch (RepositoryException e) {

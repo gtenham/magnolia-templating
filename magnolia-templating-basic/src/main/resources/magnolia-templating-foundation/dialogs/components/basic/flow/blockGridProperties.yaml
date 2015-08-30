@@ -1,0 +1,40 @@
+form:
+  i18nBasename: mgnl-i18n.magnolia-templating-foundation-basic-dialogs
+  label: magnolia-templating-foundation.components.basic.flow.blockgrid.label
+  tabs:
+    - name: tabMain
+      label: magnolia-templating-foundation.basic.tabs.tabMain.label
+      fields:
+        - name: maxItems
+          class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+          transformerClass: info.magnolia.ui.form.field.transformer.composite.DelegatingCompositeFieldTransformer
+          label: magnolia-templating-foundation.components.basic.flow.blockgrid.tabMain.maxItems.label
+          fields:
+             - name: smallView
+               class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+               defaultValue: 1
+               label: magnolia-templating-foundation.components.basic.flow.blockgrid.tabMain.maxItems.small.label
+               validators:
+                  - name: maxSmall
+                    class: info.magnolia.ui.form.validator.definition.RegexpValidatorDefinition
+                    pattern: ^[1-6]$
+                    errorMessage: magnolia-templating-foundation.components.basic.flow.blockgrid.tabMain.maxItems.errormessage
+             - name: mediumView
+               class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+               defaultValue: 3
+               label: magnolia-templating-foundation.components.basic.flow.blockgrid.tabMain.maxItems.medium.label
+               validators:
+                  - name: maxMedium
+                    class: info.magnolia.ui.form.validator.definition.RegexpValidatorDefinition
+                    pattern: ^[1-6]$
+                    errorMessage: magnolia-templating-foundation.components.basic.flow.blockgrid.tabMain.maxItems.errormessage
+             - name: largeView
+               class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+               defaultValue: 6
+               label: magnolia-templating-foundation.components.basic.flow.blockgrid.tabMain.maxItems.large.label
+               validators:
+                  - name: maxLarge
+                    class: info.magnolia.ui.form.validator.definition.RegexpValidatorDefinition
+                    pattern: ^[1-6]$
+                    errorMessage: magnolia-templating-foundation.components.basic.flow.blockgrid.tabMain.maxItems.errormessage
+actions: !include /magnolia-templating-foundation/dialogs/includes/actions-block.yaml

@@ -1,24 +1,30 @@
 package nl.gertontenham.magnolia.templating.servlets;
 
+import com.google.common.net.HttpHeaders;
+import info.magnolia.cms.filters.SelfMappingServlet;
 import info.magnolia.cms.util.ClasspathResourcesUtil;
+import info.magnolia.module.resources.ResourceLinker;
+import info.magnolia.resourceloader.Resource;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 
 /**
- * Created by gtenham on 2015-01-08.
+ * Servlet endpoint for any web resource under the default path <code>/static-resources</code> or path configured in servlet
+ * parameter "resourcesRoot".
  */
-public class StaticResourcesServlet extends HttpServlet {
+public class StaticResourcesServlet extends HttpServlet implements SelfMappingServlet {
 
     private static final Logger log = LoggerFactory.getLogger(StaticResourcesServlet.class);
 
@@ -28,6 +34,13 @@ public class StaticResourcesServlet extends HttpServlet {
     public static final String MTF_DEFAULT_RESOURCES_ROOT = "/static-resources";
 
     protected String resourcesRoot;
+    protected String requestedResourcePath;
+    private final ResourceLinker linker;
+
+    @Inject
+    public StaticResourcesServlet(ResourceLinker linker) {
+        this.linker = linker;
+    }
 
     /**
      * @see javax.servlet.GenericServlet#init()
@@ -46,16 +59,40 @@ public class StaticResourcesServlet extends HttpServlet {
         }
     }
 
+    @Override
+    public String getSelfMappingPath() {
+        return linker.getServletMapping();
+    }
+
     /**
-     * All static resource requests are handled here.
+     * All static resource get requests are handled here.
      * @throws java.io.IOException for error in accessing the resource or the servlet output stream
      */
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        String filePath = getFilePath(request);
+        requestedResourcePath = getResourcePathFromRequest(request);
 
-        streamSingleFile(request, response, filePath);
+        if (StringUtils.isBlank(requestedResourcePath)) {
+            log.warn("Invalid resource request : {} ", request.getRequestURI());
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            return;
+        }
+        final Resource resource = linker.getResource(requestedResourcePath);
+
+        if (resource == null) {
+            log.debug("Requested resource not found for path {}", requestedResourcePath);
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            return;
+        }
+
+        if (resource.isDirectory()) {
+            log.warn("Invalid resource request: {} is a directory", request.getRequestURI());
+            // send 404 instead to avoid disclosing resource existence ?
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            return;
+        }
+        serveResource(response, resource);
     }
 
     @Override
@@ -63,59 +100,42 @@ public class StaticResourcesServlet extends HttpServlet {
         doGet(request, response);
     }
 
-    private void streamSingleFile(HttpServletRequest request, HttpServletResponse response, String filePath) throws IOException {
-        InputStream in = null;
-        // this method caches content if possible and checks the magnolia.develop property to avoid
-        // caching during the development process
-        try {
-            in = ClasspathResourcesUtil.getStream(resourcesRoot + filePath);
-        }
-        catch (IOException e) {
-            IOUtils.closeQuietly(in);
-        }
+    protected void serveResource(HttpServletResponse response, Resource resource) throws IOException {
+        response.setDateHeader(HttpHeaders.LAST_MODIFIED, resource.getLastModified());
 
-        if (in == null) {
-            if (!response.isCommitted()) {
-                response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            }
-            return;
-        }
-
-        ServletOutputStream out = null;
-        try {
-            out = response.getOutputStream();
-
+        try (InputStream in = resource.openStream(); OutputStream out = response.getOutputStream()) {
             IOUtils.copy(in, out);
             out.flush();
-        }
-        catch (IOException e) {
-            // only log at debug level
+        } catch (IOException e) {
+            log.debug("Can't load resource {} : {}", resource, e, e);
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+
             // tomcat usually throws a ClientAbortException anytime the user stop loading the page
-            log.debug("Unable to spool resource due to a {} exception", e.getClass().getName());
+            log.debug("Unable to serve resource due to a {} exception: ", e, e);
             if (!response.isCommitted()) {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
         }
-        finally {
-            IOUtils.closeQuietly(out);
-            IOUtils.closeQuietly(in);
-        }
     }
 
-    protected String getFilePath(HttpServletRequest request) {
+    protected String getResourcePathFromRequest(HttpServletRequest request) {
         // handle includes
-        String filePath = (String) request.getAttribute("javax.servlet.include.path_info");
+        String resourcePath = (String) request.getAttribute("javax.servlet.include.path_info");
 
         // handle forwards
-        if (StringUtils.isEmpty(filePath)) {
-            filePath = (String) request.getAttribute("javax.servlet.forward.path_info");
+        if (resourcePath == null) {
+            resourcePath = (String) request.getAttribute("javax.servlet.forward.path_info");
         }
 
         // standard request
-        if (StringUtils.isEmpty(filePath)) {
-            filePath = request.getPathInfo();
+        if (resourcePath == null) {
+            resourcePath = request.getPathInfo();
         }
-        return filePath;
+
+        return resourcesRoot + resourcePath;
     }
 
+    public ResourceLinker getLinker() {
+        return linker;
+    }
 }

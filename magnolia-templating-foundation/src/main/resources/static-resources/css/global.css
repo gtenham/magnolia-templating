@@ -1,3 +1,114 @@
-.fullwidth {
-    max-width: initial;
+header[role="banner"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 4;
+}
+
+header[role="banner"] .icon-bar {
+    position: absolute;
+    width: initial;
+    background: inherit;
+    height: inherit;
+}
+header[role="banner"] .icon-bar a {
+    width: 100%;
+}
+header[role="banner"] .left-position {
+    left: 0;
+}
+header[role="banner"] .right-position {
+    right: 0;
+    top:0;
+}
+
+*[class^="off-canvas"] {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 3;
+
+}
+.off-canvas-left {
+    left: -100%;
+}
+.off-canvas-left.visible {
+    left: 0;
+}
+
+.off-canvas-right {
+    right: -100%;
+}
+#off-canvas-right.visible {
+    right: 0;
+}
+
+#main-nav ul.side-nav {
+    padding: 0;
+}
+#main-nav ul.side-nav li {
+    margin: 0;
+}
+
+#main-nav ul a {
+    display: block;
+}
+
+.no-js #main-nav {
+    position: fixed;
+}
+
+#site-search, #more-nav {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+}
+#site-search.visible, #more-nav.visible {
+    opacity: 1;
+    visibility: visible;
+}
+#site-search form {
+    height: 100%;
+    width: 100%;
+}
+
+
+/* Media aware medium styling*/
+@media only screen and (min-width: 40.063em) {
+    *[class^="off-canvas"] {
+        width: 350px;
+    }
+}
+
+/* Media aware large and up styling*/
+@media only screen and (min-width: 64.063em) {
+
+    header[role="banner"] #logo {
+        position: absolute;
+    }
+
+    *[class^="off-canvas"] {
+        width: 30%;
+    }
+
+    #main-nav {
+        /* reset main nav style */
+        position: fixed;
+        height: auto;
+        width: auto;
+        left: auto;
+        z-index: 4;
+    }
+    #main-nav li {
+        display: inline-block;
+    }
+    #main-nav ul a {
+        display: inline-block;
+        height: auto;
+    }
 }

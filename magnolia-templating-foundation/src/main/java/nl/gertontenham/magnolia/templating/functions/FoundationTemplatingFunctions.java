@@ -57,8 +57,9 @@ public class FoundationTemplatingFunctions extends TemplatingFunctions {
 
     //TODO: aggregationStateProvider is needed in constructor of TemplatingFunctions, but might be changed in future by Magnolia
     @Inject
-    public FoundationTemplatingFunctions(Provider<AggregationState> aggregationStateProvider, FoundationTemplatingModule module, SiteManager siteManager, TemplateTypeHelper templateTypeFunctions) {
-        super(aggregationStateProvider, templateTypeFunctions);
+    public FoundationTemplatingFunctions(Provider<AggregationState> aggregationStateProvider, FoundationTemplatingModule module,
+                                         SiteManager siteManager, TemplateTypeHelper templateTypeFunctions, Provider<I18nContentSupport> i18nContentSupport) {
+        super(aggregationStateProvider, templateTypeFunctions, i18nContentSupport);
         this.module = module;
         this.siteManager = siteManager;
     }

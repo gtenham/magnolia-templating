@@ -1,0 +1,8 @@
+name: tagFilterLink
+class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+label: magnolia-templating-foundation.includes.tagFilterLink.label
+description: magnolia-templating-foundation.includes.tagFilterLink.description
+targetWorkspace: mtf-tools
+appName: tags-manager
+identifierToPathConverter:
+   class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter

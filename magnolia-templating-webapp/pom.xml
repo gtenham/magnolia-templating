@@ -21,6 +21,10 @@
             <groupId>nl.gertontenham.magnolia</groupId>
             <artifactId>magnolia-templating-tools</artifactId>
         </dependency>
+        <dependency>
+            <groupId>nl.gertontenham.magnolia</groupId>
+            <artifactId>magnolia-templating-basic</artifactId>
+        </dependency>
 
         <!-- Overlay Magnolia Empty Webapp. Alternatively, use the bundled-webapp or the enterprise-webapp. Dependencies versions are already imported by parent, so no need to replicate here. -->
         <dependency>

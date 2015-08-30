@@ -16,6 +16,7 @@ public class SiteConfig {
     private String mappedServerName;
     private String mappedServerPath;
     private String siteSearchResultsPage;
+    private String siteTheme;
 
     public String getName() {
         return name;
@@ -103,5 +104,13 @@ public class SiteConfig {
 
     public void setSiteSearchResultsPage(String siteSearchResultsPage) {
         this.siteSearchResultsPage = siteSearchResultsPage;
+    }
+
+    public String getSiteTheme() {
+        return siteTheme;
+    }
+
+    public void setSiteTheme(String siteTheme) {
+        this.siteTheme = siteTheme;
     }
 }

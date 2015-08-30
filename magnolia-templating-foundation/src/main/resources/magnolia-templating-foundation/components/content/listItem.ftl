@@ -1,1 +1,0 @@
-${cmsfn.decode(content).subtitle}

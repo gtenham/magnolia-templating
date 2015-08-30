@@ -1,10 +1,11 @@
 require.config({
 	packages: [ 'mtf-core',
-                { name: "mgnl-resources",
-                  location: mtf.contextPath + "/resources/",
-                  main: "foundation-amd"
-                }
-              ],
+        {
+            name: "theme",
+            location: mtf.contextPath + "/static/themes/" + mtf.themeName + "/",
+            main: "theme"
+        }
+    ],
     paths: {
         /* jQuery */
         'jquery': ['//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min', 'vendor/jquery.min'],
@@ -116,7 +117,7 @@ require.config({
 	urlArgs: "v=" +  mtf.version
 });
 
-require(['mtf-core','mgnl-resources','modules/analytics'], function() {
+require(['mtf-core','theme','modules/analytics', 'modules/navigation'], function() {
 	// Main libs - Libraries and modules that will be needed on all pages of the site
 });
 

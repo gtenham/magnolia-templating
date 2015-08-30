@@ -25,6 +25,7 @@
             <implementation>nl.gertontenham.magnolia.templating.search.JcrSearchService</implementation>
             <scope>singleton</scope>
         </component>
+
     </components>
 
     <dependencies>
@@ -42,6 +43,7 @@
         <servlet>
             <name>StaticResourcesServlet</name>
             <class>nl.gertontenham.magnolia.templating.servlets.StaticResourcesServlet</class>
+            <comment>All webresources (css, js, themes) used in templates</comment>
             <mappings>
                 <mapping>/static/*</mapping>
             </mappings>

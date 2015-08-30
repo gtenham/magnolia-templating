@@ -1,0 +1,6 @@
+commit:
+  label: magnolia-templating-foundation.includes.actions.commit.label
+  class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+cancel:
+  label: magnolia-templating-foundation.includes.actions.cancel.label
+  class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

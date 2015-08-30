@@ -8,9 +8,9 @@
     <packaging>pom</packaging>
 
     <properties>
-        <magnoliaVersion>5.4</magnoliaVersion>
+        <magnoliaVersion>5.4.1</magnoliaVersion>
         <handlebarsVersion>2.2.2</handlebarsVersion>
-        <damVersion>2.1</damVersion>
+        <damVersion>2.1.1</damVersion>
         <javaVersion>1.7</javaVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -27,6 +27,7 @@
         <module>magnolia-templating-webapp</module>
         <module>magnolia-templating-foundation</module>
         <module>magnolia-templating-tools</module>
+        <module>magnolia-templating-basic</module>
     </modules>
 
     <dependencyManagement>
@@ -54,6 +55,11 @@
             <dependency>
                 <groupId>nl.gertontenham.magnolia</groupId>
                 <artifactId>magnolia-templating-tools</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>nl.gertontenham.magnolia</groupId>
+                <artifactId>magnolia-templating-basic</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -106,6 +112,11 @@
                 <scope>provided</scope>
             </dependency>
 
+            <dependency>
+                <groupId>info.magnolia.cache</groupId>
+                <artifactId>magnolia-cache-ehcache</artifactId>
+                <version>5.4</version>
+            </dependency>
             <!-- TEST -->
             <dependency>
                 <groupId>junit</groupId>

@@ -1,0 +1,7 @@
+name: boxLayout
+class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+defaultValue: false
+selected: false
+label: magnolia-templating-foundation.includes.boxLayout.label
+description: magnolia-templating-foundation.includes.boxLayout.description
+buttonLabel: magnolia-templating-foundation.includes.boxLayout.buttonLabel

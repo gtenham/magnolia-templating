@@ -1,0 +1,58 @@
+templateScript: /magnolia-templating-foundation/templates/pages/standardPage.ftl
+renderType: freemarker
+visible: true
+i18nBasename: mgnl-i18n.magnolia-templating-basic
+title: magnolia-templating-foundation.templates.pages.genericPage.title
+modelClass: nl.gertontenham.magnolia.templating.rendering.pages.BasePageRenderableDefinition
+dialog: magnolia-templating-foundation:pages/standardPageProperties
+areas:
+   morenav:
+      renderType: freemarker
+      type: noComponent
+      createAreaNode: false
+      templateScript: /magnolia-templating-foundation/templates/decorators/morenav.ftl
+   header:
+      renderType: freemarker
+      type: noComponent
+      createAreaNode: false
+      templateScript: /magnolia-templating-foundation/templates/decorators/header.ftl
+   main:
+      renderType: freemarker
+      type: noComponent
+      createAreaNode: false
+      dialog: magnolia-templating-foundation:pages/mainAreaProperties
+      templateScript: /magnolia-templating-foundation/templates/decorators/main.ftl
+      parameters:
+         element: article
+      areas:
+         content:
+            type: list
+            templateScript: /magnolia-templating-foundation/templates/decorators/listArea.ftl
+            availableComponents:
+               html:
+                  id: magnolia-templating-foundation:components/basic/html
+               articleSection:
+                  id: magnolia-templating-foundation:components/basic/flow/articleSection
+         aside:
+            type: list
+            templateScript: /magnolia-templating-foundation/templates/decorators/listArea.ftl
+            availableComponents:
+               html:
+                  id: magnolia-templating-foundation:components/basic/html
+               sectionHeader:
+                  id: magnolia-templating-foundation:components/basic/sectionHeader
+            inheritance:
+               enabled: true
+               components: filtered
+   footer:
+      renderType: freemarker
+      type: list
+      templateScript: /magnolia-templating-foundation/templates/decorators/listArea.ftl
+      inheritance:
+          enabled: true
+          components: all
+      availableComponents:
+          html:
+             id: magnolia-templating-foundation:components/basic/html
+          articleSection:
+             id: magnolia-templating-foundation:components/basic/flow/articleSection

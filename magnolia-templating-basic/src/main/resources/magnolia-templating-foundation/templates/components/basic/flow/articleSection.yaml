@@ -1,0 +1,21 @@
+templateScript: /magnolia-templating-foundation/templates/components/basic/flow/articleSection.ftl
+dialog: magnolia-templating-foundation:components/basic/flow/sectionProperties
+renderType: freemarker
+modelClass: nl.gertontenham.magnolia.templating.rendering.components.BaseComponentRenderableDefinition
+i18nBasename: mgnl-i18n.magnolia-templating-basic
+title: magnolia-templating-foundation.templates.components.basic.flow.section.title
+areas:
+   section:
+      type: list
+      parameters:
+         category: section
+      templateScript: /magnolia-templating-foundation/templates/decorators/listArea.ftl
+      availableComponents:
+         sectionHeader:
+            id: magnolia-templating-foundation:components/basic/sectionHeader
+         sectionParagraph:
+            id: magnolia-templating-foundation:components/basic/sectionParagraph
+         sectionList:
+            id: magnolia-templating-foundation:components/basic/sectionList
+         blockGrid:
+            id: magnolia-templating-foundation:components/basic/flow/blockGrid
