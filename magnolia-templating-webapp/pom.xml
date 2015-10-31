@@ -91,6 +91,29 @@
                     <dependentWarExcludes>WEB-INF/lib/*.jar</dependentWarExcludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <configuration>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>magnolia.home</name>
+                            <value>${user.home}/magnolia/magnolia-templating</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <name>magnolia.resources.dir</name>
+                            <value>${user.home}/magnolia/magnolia-templating/resources</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <name>magnolia.develop</name>
+                            <value>true</value>
+                        </systemProperty>
+                    </systemProperties>
+                    <webApp>
+                        <contextPath>/magnoliaAuthor</contextPath>
+                    </webApp>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

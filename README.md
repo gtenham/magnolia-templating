@@ -27,6 +27,17 @@ For more information on running Magnolia look here:
 
 [http://documentation.magnolia-cms.com/display/DOCS/Creating+a+custom+bundle][1]
 
+## Development setup
+Running Magnolia using the Jetty Maven plugin has been activated in the magnolia-templating-webapp module
+```shell
+cd magnolia-templating-webapp
+mvn jetty:run-exploded
+```
+
+Jetty will be running Magnolia on http://localhost:8080/magnoliaAuthor in development mode (magnolia.develop=true)
+
+Data can be found outside the container in ${user.home}/magnolia/magnolia-templating
+
 [1]: http://documentation.magnolia-cms.com/display/DOCS/Creating+a+custom+bundle#Creatingacustombundle-Runtheproject
 
 ## Features

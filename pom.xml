@@ -11,7 +11,7 @@
         <magnoliaVersion>5.4.2</magnoliaVersion>
         <handlebarsVersion>2.2.2</handlebarsVersion>
         <damVersion>2.1.1</damVersion>
-        <javaVersion>1.7</javaVersion>
+        <javaVersion>1.8</javaVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
