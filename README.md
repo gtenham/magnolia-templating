@@ -10,7 +10,7 @@ Are we OK?
 
 ## Prerequisites
 * [git](http://git-scm.com/)
-* [java 7](http://java.com)
+* [java 8](http://java.com)
 * [Maven 3](http://maven.apache.org)
 
 ## Quickstart
