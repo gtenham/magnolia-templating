@@ -49,12 +49,12 @@ public class HandlebarsTemplatesResourcesServlet extends FreemarkerTemplatesReso
     }
 
     @Override
-    protected String getResourcePathFromRequest(HttpServletRequest request) {
+    public String getResourcePathFromRequest(HttpServletRequest request) {
         return StringUtils.substringBeforeLast(super.getResourcePathFromRequest(request), ".") + suffix;
     }
 
     @Override
-    protected void serveResource(HttpServletResponse response, Resource resource) throws IOException {
+    public void serveResource(HttpServletResponse response, Resource resource) throws IOException {
         StringWriter freemarkerWriter = new StringWriter();
         TemplateLoader loader = new ClassPathTemplateLoader(resourcesRoot, suffix);
         Handlebars handlebars = new Handlebars(loader);

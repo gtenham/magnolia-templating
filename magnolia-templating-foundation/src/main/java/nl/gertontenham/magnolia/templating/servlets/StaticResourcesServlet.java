@@ -23,6 +23,8 @@ import java.net.URL;
 /**
  * Servlet endpoint for any web resource under the default path <code>/static-resources</code> or path configured in servlet
  * parameter "resourcesRoot".
+ * Note: This ia a copy of the ResourcesServlet in Magnolia 5.4 as this Servlet is hard to extend with its private properties and
+ * protected methods.
  */
 public class StaticResourcesServlet extends HttpServlet implements SelfMappingServlet {
 
@@ -31,7 +33,7 @@ public class StaticResourcesServlet extends HttpServlet implements SelfMappingSe
     /**
      * Default root directory for resources streamed from the classpath. Resources folder is configurable via the servlet <code>resourcesRoot</code> init parameter.
      */
-    public static final String MTF_DEFAULT_RESOURCES_ROOT = "/static-resources";
+    public static final String DEFAULT_RESOURCES_ROOT = "/magnolia-templating-foundation/static-resources";
 
     protected String resourcesRoot;
     protected String requestedResourcePath;
@@ -48,14 +50,14 @@ public class StaticResourcesServlet extends HttpServlet implements SelfMappingSe
     @Override
     public void init() throws ServletException {
         super.init();
-        resourcesRoot = StringUtils.defaultIfEmpty(getInitParameter("resourcesRoot"), MTF_DEFAULT_RESOURCES_ROOT);
+        resourcesRoot = StringUtils.defaultIfEmpty(getInitParameter("resourcesRoot"), DEFAULT_RESOURCES_ROOT);
         //test if the folder is really there, else log warning and fall back to default.
         URL url = ClasspathResourcesUtil.getResource(resourcesRoot);
         log.debug("resources root is {}", resourcesRoot);
         if(url == null) {
-            log.warn("Resource classpath root {} does not seem to exist. Some resources might not be available, please check your configuration. Falling back to default resources root {}", resourcesRoot, MTF_DEFAULT_RESOURCES_ROOT);
+            log.warn("Resource classpath root {} does not seem to exist. Some resources might not be available, please check your configuration. Falling back to default resources root {}", resourcesRoot, DEFAULT_RESOURCES_ROOT);
             // in case of misconfiguration, this should mitigate the risk of ending up with an unusable Magnolia instance.
-            resourcesRoot = MTF_DEFAULT_RESOURCES_ROOT;
+            resourcesRoot = DEFAULT_RESOURCES_ROOT;
         }
     }
 
@@ -96,11 +98,11 @@ public class StaticResourcesServlet extends HttpServlet implements SelfMappingSe
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
-    protected void serveResource(HttpServletResponse response, Resource resource) throws IOException {
+    public void serveResource(HttpServletResponse response, Resource resource) throws IOException {
         response.setDateHeader(HttpHeaders.LAST_MODIFIED, resource.getLastModified());
 
         try (InputStream in = resource.openStream(); OutputStream out = response.getOutputStream()) {
@@ -118,7 +120,7 @@ public class StaticResourcesServlet extends HttpServlet implements SelfMappingSe
         }
     }
 
-    protected String getResourcePathFromRequest(HttpServletRequest request) {
+    public String getResourcePathFromRequest(HttpServletRequest request) {
         // handle includes
         String resourcePath = (String) request.getAttribute("javax.servlet.include.path_info");
 

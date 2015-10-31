@@ -1,0 +1,6 @@
+dialog: magnolia-templating-foundation:components/basic/searchResult
+title: magnolia-templating-foundation.templates.components.basic.searchResult.title
+renderType: freemarker
+templateScript: /magnolia-templating-foundation/components/basic/searchResult.ftl
+i18nBasename: mgnl-i18n.magnolia-templating-basic
+modelClass: nl.gertontenham.magnolia.templating.rendering.components.search.ResultsRenderableDefinition

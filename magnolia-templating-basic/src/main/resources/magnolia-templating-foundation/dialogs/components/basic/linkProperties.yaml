@@ -5,56 +5,7 @@ form:
     - name: tabMain
       label: magnolia-templating-foundation.basic.tabs.tabMain.label
       fields:
-        - name: linkType
-          class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
-          selectionType: select
-          type: String
-          required: true
-          i18n: true
-          label: magnolia-templating-foundation.components.basic.link.tabMain.linkType.label
-          description: magnolia-templating-foundation.components.basic.link.tabMain.linkType.description
-          options:
-             - name: internal
-               value: internal
-               selected: true
-               label: magnolia-templating-foundation.components.basic.link.tabMain.linkType.options.internal
-             - name: external
-               value: external
-               selected: false
-               label: magnolia-templating-foundation.components.basic.link.tabMain.linkType.options.external
-             - name: download
-               value: download
-               selected: false
-               label: magnolia-templating-foundation.components.basic.link.tabMain.linkType.options.download
-          fields:
-             - name: internal
-               class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-               targetWorkspace: website
-               appName: pages
-               identifierToPathConverter:
-                 class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
-               type: String
-               required: false
-               label: magnolia-templating-foundation.components.basic.link.tabMain.linkType.fields.internal.label
-               description: magnolia-templating-foundation.components.basic.link.tabMain.linkType.fields.internal.description
-             - name: external
-               class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-               type: String
-               required: false
-               label: magnolia-templating-foundation.components.basic.link.tabMain.linkType.fields.external.label
-               description: magnolia-templating-foundation.components.basic.link.tabMain.linkType.fields.external.description
-             - name: download
-               class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-               targetWorkspace: dam
-               appName: assets
-               identifierToPathConverter:
-                 class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
-               contentPreviewDefinition:
-                 contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
-               type: String
-               required: false
-               label: magnolia-templating-foundation.components.basic.link.tabMain.linkType.fields.download.label
-               description: magnolia-templating-foundation.components.basic.link.tabMain.linkType.fields.download.description
+        - !include /magnolia-templating-foundation/dialogs/includes/linkType-field.yaml
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           i18n: true
@@ -65,11 +16,5 @@ form:
           i18n: true
           label: magnolia-templating-foundation.components.basic.link.tabMain.icon.label
           description: magnolia-templating-foundation.components.basic.link.tabMain.icon.description
-        - name: newWindow
-          class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
-          defaultValue: false
-          selected: true
-          label: magnolia-templating-foundation.components.basic.link.tabMain.newWindow.label
-          buttonLabel: magnolia-templating-foundation.components.basic.link.tabMain.newWindow.buttonLabel
-          description: magnolia-templating-foundation.components.basic.link.tabMain.newWindow.description
+        - !include /magnolia-templating-foundation/dialogs/includes/newWindow-field.yaml
 actions: !include /magnolia-templating-foundation/dialogs/includes/actions-block.yaml

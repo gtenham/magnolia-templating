@@ -1,0 +1,13 @@
+title: magnolia-templating-foundation.templates.components.basic.flow.searchContainer.title
+renderType: freemarker
+templateScript: /magnolia-templating-foundation/templates/components/basic/flow/searchContainer.ftl
+i18nBasename: mgnl-i18n.magnolia-templating-basic
+areas:
+  results:
+    type: list
+    templateScript: /magnolia-templating-foundation/templates/decorators/resultsArea.ftl
+    modelClass: nl.gertontenham.magnolia.templating.rendering.components.search.ResultsAreaRenderableDefinition
+    maxComponents: 7
+    availableComponents:
+      searchResult:
+        id: magnolia-templating-foundation:components/basic/searchResult

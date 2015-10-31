@@ -1,0 +1,7 @@
+name: newWindow
+class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+defaultValue: false
+selected: true
+label: magnolia-templating-foundation.includes.newWindow.label
+buttonLabel: magnolia-templating-foundation.includes.newWindow.buttonLabel
+description: magnolia-templating-foundation.includes.newWindow.description

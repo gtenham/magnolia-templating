@@ -33,6 +33,8 @@ areas:
                   id: magnolia-templating-foundation:components/basic/html
                articleSection:
                   id: magnolia-templating-foundation:components/basic/flow/articleSection
+               searchContainer:
+                  id: magnolia-templating-foundation:components/basic/flow/searchContainer
          aside:
             type: list
             templateScript: /magnolia-templating-foundation/templates/decorators/listArea.ftl

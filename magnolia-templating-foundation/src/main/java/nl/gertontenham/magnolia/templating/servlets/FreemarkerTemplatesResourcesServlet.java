@@ -38,7 +38,7 @@ public class FreemarkerTemplatesResourcesServlet extends StaticResourcesServlet 
     }
 
     @Override
-    protected void serveResource(HttpServletResponse response, Resource resource) throws IOException {
+    public void serveResource(HttpServletResponse response, Resource resource) throws IOException {
         response.setDateHeader(HttpHeaders.LAST_MODIFIED, resource.getLastModified());
 
         try {

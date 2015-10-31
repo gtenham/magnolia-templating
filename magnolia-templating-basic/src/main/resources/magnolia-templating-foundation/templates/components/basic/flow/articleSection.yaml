@@ -17,5 +17,7 @@ areas:
             id: magnolia-templating-foundation:components/basic/sectionParagraph
          sectionList:
             id: magnolia-templating-foundation:components/basic/sectionList
+         sectionList:
+            id: magnolia-templating-foundation:components/basic/sectionImage
          blockGrid:
             id: magnolia-templating-foundation:components/basic/flow/blockGrid

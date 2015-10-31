@@ -1,0 +1,52 @@
+name: linkType
+class: info.magnolia.ui.form.field.definition.SwitchableFieldDefinition
+selectionType: select
+type: String
+required: true
+i18n: true
+label: magnolia-templating-foundation.includes.linkType.label
+description: magnolia-templating-foundation.includes.linkType.description
+options:
+   - name: internal
+     value: internal
+     selected: true
+     label: magnolia-templating-foundation.includes.linkType.options.internal
+   - name: external
+     value: external
+     selected: false
+     label: magnolia-templating-foundation.includes.linkType.options.external
+   - name: download
+     value: download
+     selected: false
+     label: magnolia-templating-foundation.includes.linkType.options.download
+fields:
+   - name: internal
+     class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+     targetWorkspace: website
+     appName: pages
+     identifierToPathConverter:
+       class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
+     type: String
+     required: false
+     label: magnolia-templating-foundation.includes.linkType.fields.internal.label
+     description: magnolia-templating-foundation.includes.linkType.fields.internal.description
+   - name: external
+     class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+     type: String
+     required: false
+     i18n: true
+     label: magnolia-templating-foundation.includes.linkType.fields.external.label
+     description: magnolia-templating-foundation.includes.linkType.fields.external.description
+   - name: download
+     class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+     targetWorkspace: dam
+     appName: assets
+     identifierToPathConverter:
+       class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+     contentPreviewDefinition:
+       contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+     type: String
+     required: false
+     i18n: true
+     label: magnolia-templating-foundation.includes.linkType.fields.download.label
+     description: magnolia-templating-foundation.includes.linkType.fields.download.description

@@ -41,7 +41,10 @@
             <groupId>info.magnolia.resources</groupId>
             <artifactId>magnolia-resources-app</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>info.magnolia.templating</groupId>
+            <artifactId>magnolia-templating-essentials-models</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.github.jknack</groupId>
